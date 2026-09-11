@@ -1,115 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://heliog83.github.io/data-stories/methodology.html</loc>
-    <lastmod>2026-09-11T14:34:39.551Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/green-bay-packers.html</loc>
-    <lastmod>2026-09-11T00:19:53.894Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/jacksonville-jaguars.html</loc>
-    <lastmod>2026-09-11T00:19:53.897Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/dallas-cowboys.html</loc>
-    <lastmod>2026-09-11T00:19:53.893Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/new-york-giants.html</loc>
-    <lastmod>2026-09-11T00:19:53.902Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/detroit-lions.html</loc>
-    <lastmod>2026-09-11T00:19:53.894Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/los-angeles-chargers.html</loc>
-    <lastmod>2026-09-11T00:19:53.899Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/cincinnati-bengals.html</loc>
-    <lastmod>2026-09-11T00:19:53.892Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/index.html</loc>
-    <lastmod>2026-09-11T00:19:53.896Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/atlanta-falcons.html</loc>
-    <lastmod>2026-09-11T00:19:53.891Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/kansas-city-chiefs.html</loc>
-    <lastmod>2026-09-11T00:19:53.898Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/houston-texans.html</loc>
-    <lastmod>2026-09-11T00:19:53.896Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/cleveland-browns.html</loc>
-    <lastmod>2026-09-11T00:19:53.893Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/minnesota-vikings.html</loc>
-    <lastmod>2026-09-11T00:19:53.900Z</lastmod>
-  </url>
-  <url>
     <loc>https://heliog83.github.io/data-stories/teams/washington-commanders.html</loc>
     <lastmod>2026-09-11T00:19:53.905Z</lastmod>
   </url>
   <url>
-    <loc>https://heliog83.github.io/data-stories/teams/new-orleans-saints.html</loc>
-    <lastmod>2026-09-11T00:19:53.901Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/tennessee-titans.html</loc>
-    <lastmod>2026-09-11T00:19:53.905Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/artifacts.html</loc>
-    <lastmod>2026-09-11T14:34:54.717Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/index.html</loc>
-    <lastmod>2026-09-11T00:19:53.871Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/posts/no-clusters/index.html</loc>
-    <lastmod>2026-09-11T00:19:53.888Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/posts/nfl-team-archetypes/index.html</loc>
-    <lastmod>2026-09-11T00:19:53.877Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/posts/market-efficiency/index.html</loc>
-    <lastmod>2026-09-11T14:35:17.455Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/about.html</loc>
-    <lastmod>2026-09-11T00:19:53.870Z</lastmod>
+    <loc>https://heliog83.github.io/data-stories/teams/tampa-bay-buccaneers.html</loc>
+    <lastmod>2026-09-11T00:19:53.904Z</lastmod>
   </url>
   <url>
     <loc>https://heliog83.github.io/data-stories/teams/san-francisco-49ers.html</loc>
     <lastmod>2026-09-11T00:19:53.904Z</lastmod>
   </url>
   <url>
-    <loc>https://heliog83.github.io/data-stories/teams/indianapolis-colts.html</loc>
-    <lastmod>2026-09-11T00:19:53.897Z</lastmod>
+    <loc>https://heliog83.github.io/data-stories/teams/philadelphia-eagles.html</loc>
+    <lastmod>2026-09-11T00:19:53.902Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/teams/new-york-giants.html</loc>
+    <lastmod>2026-09-11T00:19:53.902Z</lastmod>
   </url>
   <url>
     <loc>https://heliog83.github.io/data-stories/teams/new-england-patriots.html</loc>
     <lastmod>2026-09-11T00:19:53.900Z</lastmod>
   </url>
   <url>
+    <loc>https://heliog83.github.io/data-stories/teams/miami-dolphins.html</loc>
+    <lastmod>2026-09-11T00:19:53.899Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/teams/los-angeles-chargers.html</loc>
+    <lastmod>2026-09-11T00:19:53.899Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/teams/kansas-city-chiefs.html</loc>
+    <lastmod>2026-09-11T00:19:53.898Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/teams/indianapolis-colts.html</loc>
+    <lastmod>2026-09-11T00:19:53.897Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/teams/houston-texans.html</loc>
+    <lastmod>2026-09-11T00:19:53.896Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/teams/detroit-lions.html</loc>
+    <lastmod>2026-09-11T00:19:53.894Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/teams/dallas-cowboys.html</loc>
+    <lastmod>2026-09-11T00:19:53.893Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/teams/cincinnati-bengals.html</loc>
+    <lastmod>2026-09-11T00:19:53.892Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/teams/carolina-panthers.html</loc>
+    <lastmod>2026-09-11T00:19:53.892Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/teams/baltimore-ravens.html</loc>
+    <lastmod>2026-09-11T00:19:53.891Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/teams/arizona-cardinals.html</loc>
+    <lastmod>2026-09-11T00:19:53.890Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/posts/nfl-team-archetypes/index.html</loc>
+    <lastmod>2026-09-11T16:02:37.725Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/methodology.html</loc>
+    <lastmod>2026-09-11T14:34:39.551Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/artifacts.html</loc>
+    <lastmod>2026-09-11T14:34:54.717Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/about.html</loc>
+    <lastmod>2026-09-11T16:02:37.737Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/index.html</loc>
+    <lastmod>2026-09-11T15:43:28.369Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/posts/market-efficiency/index.html</loc>
+    <lastmod>2026-09-11T16:02:37.715Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/posts/no-clusters/index.html</loc>
+    <lastmod>2026-09-11T16:02:37.749Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/teams/atlanta-falcons.html</loc>
+    <lastmod>2026-09-11T00:19:53.891Z</lastmod>
+  </url>
+  <url>
     <loc>https://heliog83.github.io/data-stories/teams/buffalo-bills.html</loc>
     <lastmod>2026-09-11T00:19:53.891Z</lastmod>
   </url>
   <url>
-    <loc>https://heliog83.github.io/data-stories/teams/philadelphia-eagles.html</loc>
+    <loc>https://heliog83.github.io/data-stories/teams/chicago-bears.html</loc>
+    <lastmod>2026-09-11T00:19:53.892Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/teams/cleveland-browns.html</loc>
+    <lastmod>2026-09-11T00:19:53.893Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/teams/denver-broncos.html</loc>
+    <lastmod>2026-09-11T00:19:53.893Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/teams/green-bay-packers.html</loc>
+    <lastmod>2026-09-11T00:19:53.894Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/teams/index.html</loc>
+    <lastmod>2026-09-11T00:19:53.896Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/teams/jacksonville-jaguars.html</loc>
+    <lastmod>2026-09-11T00:19:53.897Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/teams/las-vegas-raiders.html</loc>
+    <lastmod>2026-09-11T00:19:53.898Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/teams/los-angeles-rams.html</loc>
+    <lastmod>2026-09-11T00:19:53.899Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/teams/minnesota-vikings.html</loc>
+    <lastmod>2026-09-11T00:19:53.900Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/teams/new-orleans-saints.html</loc>
+    <lastmod>2026-09-11T00:19:53.901Z</lastmod>
+  </url>
+  <url>
+    <loc>https://heliog83.github.io/data-stories/teams/new-york-jets.html</loc>
     <lastmod>2026-09-11T00:19:53.902Z</lastmod>
   </url>
   <url>
@@ -121,43 +157,7 @@
     <lastmod>2026-09-11T00:19:53.904Z</lastmod>
   </url>
   <url>
-    <loc>https://heliog83.github.io/data-stories/teams/new-york-jets.html</loc>
-    <lastmod>2026-09-11T00:19:53.902Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/miami-dolphins.html</loc>
-    <lastmod>2026-09-11T00:19:53.899Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/carolina-panthers.html</loc>
-    <lastmod>2026-09-11T00:19:53.892Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/las-vegas-raiders.html</loc>
-    <lastmod>2026-09-11T00:19:53.898Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/arizona-cardinals.html</loc>
-    <lastmod>2026-09-11T00:19:53.890Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/baltimore-ravens.html</loc>
-    <lastmod>2026-09-11T00:19:53.891Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/denver-broncos.html</loc>
-    <lastmod>2026-09-11T00:19:53.893Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/los-angeles-rams.html</loc>
-    <lastmod>2026-09-11T00:19:53.899Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/tampa-bay-buccaneers.html</loc>
-    <lastmod>2026-09-11T00:19:53.904Z</lastmod>
-  </url>
-  <url>
-    <loc>https://heliog83.github.io/data-stories/teams/chicago-bears.html</loc>
-    <lastmod>2026-09-11T00:19:53.892Z</lastmod>
+    <loc>https://heliog83.github.io/data-stories/teams/tennessee-titans.html</loc>
+    <lastmod>2026-09-11T00:19:53.905Z</lastmod>
   </url>
 </urlset>
