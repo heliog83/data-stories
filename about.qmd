@@ -1,0 +1,32 @@
+---
+title: "About"
+---
+
+## Who I Am
+
+I'm Helio — a data analyst based in Mexico who believes the best way to understand something is to measure it, visualize it, and be honest about what the data does and doesn't say.
+
+## What This Blog Is
+
+Every post starts with **one clear question** and tries to answer it with data and a strong chart. I write in three lanes:
+
+- **🏈 NFL Analytics** — team archetypes, matchup explanations, and betting model research using EPA and play-by-play data
+- **🏃 Personal Data** — what my own Garmin, training, and life data actually show
+- **🇲🇽 Mexico & Social** — disappearances, economic data, and stories that deserve careful, dignified analysis
+
+## The Design Philosophy
+
+Inspired by *The Economist*: high data-ink ratio, direct labels instead of legends, one takeaway per chart, and titles that state findings, not topics.
+
+The analysis pipeline is built in R (tidyverse, ggplot2, Shiny) and Python. Charts are rendered from code — no Canva, no manual pixel pushing.
+
+## Tools
+
+- **R** (nflfastR, dplyr, ggplot2, gt, Shiny)
+- **Python** (pandas, matplotlib)
+- **Quarto** for publishing
+- **NotebookLM** for research and brainstorming
+
+## Get in Touch
+
+Questions, collaboration ideas, or data corrections? Find me on GitHub.

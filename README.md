@@ -1,0 +1,85 @@
+# Helio's Data Stories — blog
+
+Quarto static site. Published output is `_site/` (git-ignored — rebuild, don't commit).
+
+## The one rule
+
+**No numbers are typed by hand into `teams/*.qmd`.** Those 33 files (32 teams +
+index) are *generated*. Editing them directly gets your work overwritten on the
+next run.
+
+To change what a team page says, edit `scripts/generate_team_pages.R`.
+
+## Workflow
+
+```bash
+# 1. refresh the analysis (in the nfl_analytics repo)
+cd ~/Documents/nfl_analytics && Rscript run_pipeline.R
+
+# 2. regenerate every team dossier from the pipeline outputs
+cd ~/"Documents/personal agent/projects/publishing/blog"
+Rscript scripts/generate_team_pages.R 2025
+
+# 3. build
+quarto render
+```
+
+`generate_team_pages.R` takes the season as its only argument. Pass `2024` and
+you get a full 2024 site instead — the season is not hardcoded anywhere.
+
+## Preview without waiting 23 seconds
+
+`quarto preview` rebuilds all 36 pages before it serves anything. When working on
+one page, preview only that page:
+
+```bash
+quarto preview posts/nfl-team-archetypes/index.qmd
+```
+
+For the whole site, skip the initial render and let it rebuild on save:
+
+```bash
+quarto preview --no-render
+```
+
+## Data flow
+
+| Source (nfl_analytics) | Feeds |
+|---|---|
+| `complete_picture_all.rds` | archetype, tiers, EPA bars, identity, record |
+| `qb_rolling.rds` | quarterback rolling-5 EPA / CPOE |
+| `rb_kpis.rds` | lead back carries, YBC/YAC, style |
+| `projections_2026.rds` | projected wins, CI, fragility flag |
+
+## Conventions
+
+- Charts on team pages are **pure CSS** (`.epa-bars`), not images — zero page
+  weight, no JS, and they theme with light/dark automatically.
+- All four EPA bars are **EPA per play** on one shared league-wide scale. Never
+  mix season totals and per-play rates on the same axis.
+- Design tokens live at the top of `styles.css`. Quarto's content wrapper is
+  `#quarto-document-content` (an **id**, not a class) — scoping to
+  `.quarto-document-content` silently does nothing.
+
+## Clustering validation
+
+`scripts/cluster_archetypes.R` answers "are the archetypes real groups?" with four
+tests that can each return *no*: mclust BIC, the gap statistic, a multivariate-normal
+null comparison, and `fpc::clusterboot` stability. It writes every quoted number to
+`outputs/cluster_results.json` and both light/dark variants of each figure.
+
+```bash
+Rscript scripts/cluster_archetypes.R
+```
+
+**The answer is no** — 160 NFL team-seasons form one continuous cloud. That result
+is the subject of `posts/no-clusters/`. Do not re-describe the archetypes as
+"clustered" anywhere on this site.
+
+Needs: `mclust`, `fpc`, `cluster`, `rpart`, `MASS`, `jsonlite`, `ggplot2`.
+
+## Figures in both themes
+
+PNGs can't restyle themselves, so every figure ships twice — `*_light.png` and
+`*_dark.png` — swapped by CSS on `[data-bs-theme="dark"]`. Use the `.figpair`
+markup (see `posts/no-clusters/index.qmd`) and always write real `alt` text.

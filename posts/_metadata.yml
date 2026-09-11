@@ -1,0 +1,5 @@
+# Shared defaults for all posts
+author: "Helio"
+date-format: "MMMM D, YYYY"
+toc: true
+toc-depth: 2

@@ -1,0 +1,356 @@
+---
+title: "All 32 Teams, Sorted by What They Actually Are"
+subtitle: "2025 season, grouped by archetype rather than by conference"
+description: "Every NFL franchise's 2025 analytical dossier &mdash; EPA efficiency, offensive identity, and 2026 win projection &mdash; grouped by archetype."
+page-layout: full
+toc: false
+---
+
+::: {.lead}
+Standings sort teams by results. This page sorts them by *profile* &mdash; the combination of passing efficiency and defensive suppression that the win model says explains roughly three quarters of win variation. Teams sitting in the same group played fundamentally similar football in 2025, whatever their records say.
+:::
+
+## Contender <span style="font-weight:400;color:var(--color-text-muted);font-size:.8em">&nbsp;5 teams</span>
+
+::: {.sec-note}
+Top-quartile passing offence with a defence that at least holds up. The profile that actually wins in January.
+:::
+
+```{=html}
+<div class="team-grid">
+  <a class="team-card" href="new-england-patriots.qmd">
+    <div class="tc-top">
+      <span class="tc-name">New England Patriots</span>
+      <span class="tc-record">14&ndash;3</span>
+    </div>
+    <span class="arch-badge arch-contender">Contender</span>
+    <div class="tc-meta">Good Offense Despite Run Game<br>Offence <strong>Elite</strong> &middot; Defence <strong>Elite</strong> &middot; 2026 proj <strong>8.5W</strong></div>
+  </a>
+  <a class="team-card" href="seattle-seahawks.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Seattle Seahawks</span>
+      <span class="tc-record">14&ndash;3</span>
+    </div>
+    <span class="arch-badge arch-contender">Contender</span>
+    <div class="tc-meta">Good Offense Despite Run Game<br>Offence <strong>Elite</strong> &middot; Defence <strong>Elite</strong> &middot; 2026 proj <strong>9.7W</strong></div>
+  </a>
+  <a class="team-card" href="los-angeles-rams.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Los Angeles Rams</span>
+      <span class="tc-record">12&ndash;5</span>
+    </div>
+    <span class="arch-badge arch-contender">Contender</span>
+    <div class="tc-meta">Elite Offense — Pass Drives It<br>Offence <strong>Elite</strong> &middot; Defence <strong>Competent</strong> &middot; 2026 proj <strong>10.2W</strong></div>
+  </a>
+  <a class="team-card" href="buffalo-bills.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Buffalo Bills</span>
+      <span class="tc-record">12&ndash;5</span>
+    </div>
+    <span class="arch-badge arch-contender">Contender</span>
+    <div class="tc-meta">Elite Run Identity<br>Offence <strong>Elite</strong> &middot; Defence <strong>Elite</strong> &middot; 2026 proj <strong>12.6W</strong></div>
+  </a>
+  <a class="team-card" href="detroit-lions.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Detroit Lions</span>
+      <span class="tc-record">9&ndash;8</span>
+    </div>
+    <span class="arch-badge arch-contender">Contender</span>
+    <div class="tc-meta">Good Offense Despite Run Game<br>Offence <strong>Elite</strong> &middot; Defence <strong>Competent</strong> &middot; 2026 proj <strong>10.5W</strong></div>
+  </a>
+</div>
+```
+
+## Offensive Juggernaut <span style="font-weight:400;color:var(--color-text-muted);font-size:.8em">&nbsp;4 teams</span>
+
+::: {.sec-note}
+Elite passing offence dragging a bottom-quartile defence. Fun, volatile, and usually one shootout from elimination.
+:::
+
+```{=html}
+<div class="team-grid">
+  <a class="team-card" href="san-francisco-49ers.qmd">
+    <div class="tc-top">
+      <span class="tc-name">San Francisco 49ers</span>
+      <span class="tc-record">12&ndash;5</span>
+    </div>
+    <span class="arch-badge arch-juggernaut">Offensive Juggernaut</span>
+    <div class="tc-meta">Good Offense Despite Run Game<br>Offence <strong>Elite</strong> &middot; Defence <strong>Poor</strong> &middot; 2026 proj <strong>10.4W</strong></div>
+  </a>
+  <a class="team-card" href="chicago-bears.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Chicago Bears</span>
+      <span class="tc-record">11&ndash;6</span>
+    </div>
+    <span class="arch-badge arch-juggernaut">Offensive Juggernaut</span>
+    <div class="tc-meta">Functional Run Identity<br>Offence <strong>Elite</strong> &middot; Defence <strong>Poor</strong> &middot; 2026 proj <strong>7.4W</strong></div>
+  </a>
+  <a class="team-card" href="green-bay-packers.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Green Bay Packers</span>
+      <span class="tc-record">9&ndash;8</span>
+    </div>
+    <span class="arch-badge arch-juggernaut">Offensive Juggernaut</span>
+    <div class="tc-meta">Elite Offense — Pass Drives It<br>Offence <strong>Elite</strong> &middot; Defence <strong>Poor</strong> &middot; 2026 proj <strong>10.6W</strong></div>
+  </a>
+  <a class="team-card" href="dallas-cowboys.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Dallas Cowboys</span>
+      <span class="tc-record">7&ndash;10</span>
+    </div>
+    <span class="arch-badge arch-juggernaut">Offensive Juggernaut</span>
+    <div class="tc-meta">Complementary Rushing<br>Offence <strong>Elite</strong> &middot; Defence <strong>Poor</strong> &middot; 2026 proj <strong>8.4W</strong></div>
+  </a>
+</div>
+```
+
+## Defense-Led <span style="font-weight:400;color:var(--color-text-muted);font-size:.8em">&nbsp;5 teams</span>
+
+::: {.sec-note}
+Middling offence, top-quartile defence. Wins are real but the ceiling is set by the quarterback.
+:::
+
+```{=html}
+<div class="team-grid">
+  <a class="team-card" href="denver-broncos.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Denver Broncos</span>
+      <span class="tc-record">14&ndash;3</span>
+    </div>
+    <span class="arch-badge arch-defense">Defense-Led</span>
+    <div class="tc-meta">Good Offense Despite Run Game<br>Offence <strong>Competent</strong> &middot; Defence <strong>Elite</strong> &middot; 2026 proj <strong>9.3W</strong></div>
+  </a>
+  <a class="team-card" href="jacksonville-jaguars.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Jacksonville Jaguars</span>
+      <span class="tc-record">13&ndash;4</span>
+    </div>
+    <span class="arch-badge arch-defense">Defense-Led</span>
+    <div class="tc-meta">Functional Run Identity<br>Offence <strong>Competent</strong> &middot; Defence <strong>Elite</strong> &middot; 2026 proj <strong>8.1W</strong></div>
+  </a>
+  <a class="team-card" href="houston-texans.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Houston Texans</span>
+      <span class="tc-record">12&ndash;5</span>
+    </div>
+    <span class="arch-badge arch-defense">Defense-Led</span>
+    <div class="tc-meta">Both Phases Broken<br>Offence <strong>Competent</strong> &middot; Defence <strong>Elite</strong> &middot; 2026 proj <strong>8.5W</strong></div>
+  </a>
+  <a class="team-card" href="philadelphia-eagles.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Philadelphia Eagles</span>
+      <span class="tc-record">11&ndash;6</span>
+    </div>
+    <span class="arch-badge arch-defense">Defense-Led</span>
+    <div class="tc-meta">Good Offense Despite Run Game<br>Offence <strong>Competent</strong> &middot; Defence <strong>Elite</strong> &middot; 2026 proj <strong>11.0W</strong></div>
+  </a>
+  <a class="team-card" href="new-orleans-saints.qmd">
+    <div class="tc-top">
+      <span class="tc-name">New Orleans Saints</span>
+      <span class="tc-record">6&ndash;11</span>
+    </div>
+    <span class="arch-badge arch-defense">Defense-Led</span>
+    <div class="tc-meta">Both Phases Broken<br>Offence <strong>Competent</strong> &middot; Defence <strong>Elite</strong> &middot; 2026 proj <strong>8.1W</strong></div>
+  </a>
+</div>
+```
+
+## Defensive Fortress <span style="font-weight:400;color:var(--color-text-muted);font-size:.8em">&nbsp;3 teams</span>
+
+::: {.sec-note}
+Bottom-quartile offence carried entirely by an elite defence. Historically the least stable archetype year to year.
+:::
+
+```{=html}
+<div class="team-grid">
+  <a class="team-card" href="los-angeles-chargers.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Los Angeles Chargers</span>
+      <span class="tc-record">11&ndash;6</span>
+    </div>
+    <span class="arch-badge arch-fortress">Defensive Fortress</span>
+    <div class="tc-meta">Marginal — Passing Needs Fixing<br>Offence <strong>Poor</strong> &middot; Defence <strong>Elite</strong> &middot; 2026 proj <strong>8.8W</strong></div>
+  </a>
+  <a class="team-card" href="minnesota-vikings.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Minnesota Vikings</span>
+      <span class="tc-record">9&ndash;8</span>
+    </div>
+    <span class="arch-badge arch-fortress">Defensive Fortress</span>
+    <div class="tc-meta">Marginal — Passing Needs Fixing<br>Offence <strong>Poor</strong> &middot; Defence <strong>Elite</strong> &middot; 2026 proj <strong>8.3W</strong></div>
+  </a>
+  <a class="team-card" href="cleveland-browns.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Cleveland Browns</span>
+      <span class="tc-record">5&ndash;12</span>
+    </div>
+    <span class="arch-badge arch-fortress">Defensive Fortress</span>
+    <div class="tc-meta">Marginal — Passing Needs Fixing<br>Offence <strong>Poor</strong> &middot; Defence <strong>Elite</strong> &middot; 2026 proj <strong>6.0W</strong></div>
+  </a>
+</div>
+```
+
+## Balanced <span style="font-weight:400;color:var(--color-text-muted);font-size:.8em">&nbsp;4 teams</span>
+
+::: {.sec-note}
+Competent in both phases, elite in neither. The league's default state.
+:::
+
+```{=html}
+<div class="team-grid">
+  <a class="team-card" href="pittsburgh-steelers.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Pittsburgh Steelers</span>
+      <span class="tc-record">10&ndash;7</span>
+    </div>
+    <span class="arch-badge arch-balanced">Balanced</span>
+    <div class="tc-meta">Marginal — Passing Needs Fixing<br>Offence <strong>Competent</strong> &middot; Defence <strong>Competent</strong> &middot; 2026 proj <strong>7.6W</strong></div>
+  </a>
+  <a class="team-card" href="indianapolis-colts.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Indianapolis Colts</span>
+      <span class="tc-record">8&ndash;9</span>
+    </div>
+    <span class="arch-badge arch-balanced">Balanced</span>
+    <div class="tc-meta">Complementary Rushing<br>Offence <strong>Competent</strong> &middot; Defence <strong>Competent</strong> &middot; 2026 proj <strong>8.2W</strong></div>
+  </a>
+  <a class="team-card" href="atlanta-falcons.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Atlanta Falcons</span>
+      <span class="tc-record">8&ndash;9</span>
+    </div>
+    <span class="arch-badge arch-balanced">Balanced</span>
+    <div class="tc-meta">Run Identity — Broken<br>Offence <strong>Competent</strong> &middot; Defence <strong>Competent</strong> &middot; 2026 proj <strong>7.4W</strong></div>
+  </a>
+  <a class="team-card" href="kansas-city-chiefs.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Kansas City Chiefs</span>
+      <span class="tc-record">6&ndash;11</span>
+    </div>
+    <span class="arch-badge arch-balanced">Balanced</span>
+    <div class="tc-meta">Complementary Rushing<br>Offence <strong>Competent</strong> &middot; Defence <strong>Competent</strong> &middot; 2026 proj <strong>10.3W</strong></div>
+  </a>
+</div>
+```
+
+## Pretender <span style="font-weight:400;color:var(--color-text-muted);font-size:.8em">&nbsp;8 teams</span>
+
+::: {.sec-note}
+Competent offence, poor defence. Records here tend to overstate the underlying team.
+:::
+
+```{=html}
+<div class="team-grid">
+  <a class="team-card" href="carolina-panthers.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Carolina Panthers</span>
+      <span class="tc-record">8&ndash;9</span>
+    </div>
+    <span class="arch-badge arch-pretender">Pretender</span>
+    <div class="tc-meta">Run Identity — Broken<br>Offence <strong>Competent</strong> &middot; Defence <strong>Poor</strong> &middot; 2026 proj <strong>5.3W</strong></div>
+  </a>
+  <a class="team-card" href="tampa-bay-buccaneers.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Tampa Bay Buccaneers</span>
+      <span class="tc-record">8&ndash;9</span>
+    </div>
+    <span class="arch-badge arch-pretender">Pretender</span>
+    <div class="tc-meta">Surviving On The Run<br>Offence <strong>Competent</strong> &middot; Defence <strong>Poor</strong> &middot; 2026 proj <strong>9.0W</strong></div>
+  </a>
+  <a class="team-card" href="baltimore-ravens.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Baltimore Ravens</span>
+      <span class="tc-record">8&ndash;9</span>
+    </div>
+    <span class="arch-badge arch-pretender">Pretender</span>
+    <div class="tc-meta">Functional Run Identity<br>Offence <strong>Competent</strong> &middot; Defence <strong>Poor</strong> &middot; 2026 proj <strong>10.7W</strong></div>
+  </a>
+  <a class="team-card" href="miami-dolphins.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Miami Dolphins</span>
+      <span class="tc-record">7&ndash;10</span>
+    </div>
+    <span class="arch-badge arch-pretender">Pretender</span>
+    <div class="tc-meta">Run Identity — Broken<br>Offence <strong>Competent</strong> &middot; Defence <strong>Poor</strong> &middot; 2026 proj <strong>8.0W</strong></div>
+  </a>
+  <a class="team-card" href="cincinnati-bengals.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Cincinnati Bengals</span>
+      <span class="tc-record">6&ndash;11</span>
+    </div>
+    <span class="arch-badge arch-pretender">Pretender</span>
+    <div class="tc-meta">Complementary Rushing<br>Offence <strong>Competent</strong> &middot; Defence <strong>Poor</strong> &middot; 2026 proj <strong>8.2W</strong></div>
+  </a>
+  <a class="team-card" href="washington-commanders.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Washington Commanders</span>
+      <span class="tc-record">5&ndash;12</span>
+    </div>
+    <span class="arch-badge arch-pretender">Pretender</span>
+    <div class="tc-meta">Functional Run Identity<br>Offence <strong>Competent</strong> &middot; Defence <strong>Poor</strong> &middot; 2026 proj <strong>6.8W</strong></div>
+  </a>
+  <a class="team-card" href="new-york-giants.qmd">
+    <div class="tc-top">
+      <span class="tc-name">New York Giants</span>
+      <span class="tc-record">4&ndash;13</span>
+    </div>
+    <span class="arch-badge arch-pretender">Pretender</span>
+    <div class="tc-meta">Surviving On The Run<br>Offence <strong>Competent</strong> &middot; Defence <strong>Poor</strong> &middot; 2026 proj <strong>5.8W</strong></div>
+  </a>
+  <a class="team-card" href="arizona-cardinals.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Arizona Cardinals</span>
+      <span class="tc-record">3&ndash;14</span>
+    </div>
+    <span class="arch-badge arch-pretender">Pretender</span>
+    <div class="tc-meta">Marginal — Passing Needs Fixing<br>Offence <strong>Competent</strong> &middot; Defence <strong>Poor</strong> &middot; 2026 proj <strong>7.0W</strong></div>
+  </a>
+</div>
+```
+
+## Rebuilder <span style="font-weight:400;color:var(--color-text-muted);font-size:.8em">&nbsp;3 teams</span>
+
+::: {.sec-note}
+Bottom-quartile passing offence. Nothing else matters until that changes.
+:::
+
+```{=html}
+<div class="team-grid">
+  <a class="team-card" href="new-york-jets.qmd">
+    <div class="tc-top">
+      <span class="tc-name">New York Jets</span>
+      <span class="tc-record">3&ndash;14</span>
+    </div>
+    <span class="arch-badge arch-rebuilder">Rebuilder</span>
+    <div class="tc-meta">Run Identity — Broken<br>Offence <strong>Poor</strong> &middot; Defence <strong>Poor</strong> &middot; 2026 proj <strong>4.9W</strong></div>
+  </a>
+  <a class="team-card" href="las-vegas-raiders.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Las Vegas Raiders</span>
+      <span class="tc-record">3&ndash;14</span>
+    </div>
+    <span class="arch-badge arch-rebuilder">Rebuilder</span>
+    <div class="tc-meta">Both Phases Broken<br>Offence <strong>Poor</strong> &middot; Defence <strong>Competent</strong> &middot; 2026 proj <strong>4.8W</strong></div>
+  </a>
+  <a class="team-card" href="tennessee-titans.qmd">
+    <div class="tc-top">
+      <span class="tc-name">Tennessee Titans</span>
+      <span class="tc-record">3&ndash;14</span>
+    </div>
+    <span class="arch-badge arch-rebuilder">Rebuilder</span>
+    <div class="tc-meta">Marginal — Passing Needs Fixing<br>Offence <strong>Poor</strong> &middot; Defence <strong>Poor</strong> &middot; 2026 proj <strong>5.1W</strong></div>
+  </a>
+</div>
+```
+
+
+```{=html}
+<div class="provenance">
+  32 team-seasons, 2025 regular season. Generated from the <code>nfl_analytics</code>
+  pipeline by <code>scripts/generate_team_pages.R</code>. Tier cutoffs are 5-season
+  empirical quartiles &mdash; see the
+  <a href="../posts/nfl-team-archetypes/index.qmd">methodology post</a> for how the
+  groups are drawn and where the rules are weakest.
+</div>
+```
+

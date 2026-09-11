@@ -1,0 +1,203 @@
+{
+  "n_team_seasons": 160,
+  "seasons": "2021-2025",
+  "features": ["pass_epa_pp", "rush_epa_pp", "def_pass_pp", "def_rush_pp"],
+  "mclust": {
+    "chosen_G": 1,
+    "model": "XXX",
+    "bic": -1816.4
+  },
+  "gap": {
+    "chosen_k": 1,
+    "table": [
+      {
+        "k": 1,
+        "gap": 0.4045,
+        "se": 0.0196
+      },
+      {
+        "k": 2,
+        "gap": 0.3664,
+        "se": 0.0193
+      },
+      {
+        "k": 3,
+        "gap": 0.3558,
+        "se": 0.0189
+      },
+      {
+        "k": 4,
+        "gap": 0.3287,
+        "se": 0.0176
+      },
+      {
+        "k": 5,
+        "gap": 0.3273,
+        "se": 0.0176
+      },
+      {
+        "k": 6,
+        "gap": 0.3262,
+        "se": 0.0176
+      },
+      {
+        "k": 7,
+        "gap": 0.3212,
+        "se": 0.0176
+      },
+      {
+        "k": 8,
+        "gap": 0.3174,
+        "se": 0.0179
+      },
+      {
+        "k": 9,
+        "gap": 0.3233,
+        "se": 0.0181
+      }
+    ]
+  },
+  "silhouette": [
+    {
+      "k": 2,
+      "silhouette": 0.225
+    },
+    {
+      "k": 3,
+      "silhouette": 0.23
+    },
+    {
+      "k": 4,
+      "silhouette": 0.215
+    },
+    {
+      "k": 5,
+      "silhouette": 0.203
+    },
+    {
+      "k": 6,
+      "silhouette": 0.21
+    },
+    {
+      "k": 7,
+      "silhouette": 0.209
+    },
+    {
+      "k": 8,
+      "silhouette": 0.209
+    },
+    {
+      "k": 9,
+      "silhouette": 0.23
+    }
+  ],
+  "null_test": [
+    {
+      "k": 2,
+      "observed": 0.755,
+      "mvn_null_mean": 0.738,
+      "percentile": 0.84
+    },
+    {
+      "k": 3,
+      "observed": 0.578,
+      "mvn_null_mean": 0.587,
+      "percentile": 0.3
+    },
+    {
+      "k": 4,
+      "observed": 0.509,
+      "mvn_null_mean": 0.509,
+      "percentile": 0.49
+    },
+    {
+      "k": 5,
+      "observed": 0.46,
+      "mvn_null_mean": 0.455,
+      "percentile": 0.59
+    },
+    {
+      "k": 6,
+      "observed": 0.414,
+      "mvn_null_mean": 0.412,
+      "percentile": 0.52
+    },
+    {
+      "k": 7,
+      "observed": 0.38,
+      "mvn_null_mean": 0.377,
+      "percentile": 0.55
+    },
+    {
+      "k": 8,
+      "observed": 0.352,
+      "mvn_null_mean": 0.349,
+      "percentile": 0.54
+    }
+  ],
+  "stability": [
+    {
+      "k": 2,
+      "min_jaccard": 0.556,
+      "mean_jaccard": 0.571,
+      "max_jaccard": 0.586
+    },
+    {
+      "k": 3,
+      "min_jaccard": 0.805,
+      "mean_jaccard": 0.833,
+      "max_jaccard": 0.852
+    },
+    {
+      "k": 4,
+      "min_jaccard": 0.556,
+      "mean_jaccard": 0.637,
+      "max_jaccard": 0.706
+    },
+    {
+      "k": 5,
+      "min_jaccard": 0.389,
+      "mean_jaccard": 0.556,
+      "max_jaccard": 0.621
+    },
+    {
+      "k": 6,
+      "min_jaccard": 0.337,
+      "mean_jaccard": 0.509,
+      "max_jaccard": 0.635
+    },
+    {
+      "k": 7,
+      "min_jaccard": 0.411,
+      "mean_jaccard": 0.533,
+      "max_jaccard": 0.629
+    },
+    {
+      "k": 8,
+      "min_jaccard": 0.358,
+      "mean_jaccard": 0.512,
+      "max_jaccard": 0.618
+    }
+  ],
+  "pca": {
+    "variance": [0.37, 0.345, 0.155, 0.13],
+    "loadings": [
+      [-0.686, 0.173],
+      [-0.576, 0.434],
+      [-0.391, -0.572],
+      [-0.214, -0.674]
+    ],
+    "cor_pc1_wins": 0.828,
+    "cor_pc2_wins": -0.182
+  },
+  "persistence": {
+    "n_pairs": 128,
+    "same_label_rate": 0.336,
+    "chance_baseline": 0.179,
+    "cor_pc1_year_over_year": 0.409
+  },
+  "tree": {
+    "accuracy_depth3": 0.856,
+    "n_leaves": 6
+  }
+}

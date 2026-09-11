@@ -1,0 +1,21 @@
+---
+title: "Helio's Data Stories"
+listing:
+  id: posts
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  fields: [title, description, date, categories]
+page-layout: full
+title-block-banner: false
+---
+
+::: {.lead}
+Rigorous analysis meets clean data visualization. NFL analytics, personal data experiments, and stories from Mexico — each post is one clear question, answered with data and a strong chart.
+:::
+
+## Latest Posts
+
+::: {#posts}
+:::

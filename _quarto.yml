@@ -1,0 +1,42 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Helio's Data Stories"
+  description: "Rigorous analysis meets clean data visualization — NFL analytics, personal data, and stories from Mexico."
+  navbar:
+    background: "#1a1a2e"
+    foreground: "#e8e8e8"
+    left:
+      - text: Home
+        href: index.qmd
+      - text: NFL Teams
+        href: teams/index.qmd
+      - text: About
+        href: about.qmd
+    right:
+      - icon: github
+        href: https://github.com/heliog83/data-stories
+  page-footer:
+    center: "Built with [Quarto](https://quarto.org) · Data-driven stories by Helio"
+    background: "#1a1a2e"
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    code-tools: true
+    fig-width: 8
+    fig-height: 5
+    fig-dpi: 300
+
+execute:
+  freeze: auto
+
+lang: en
