@@ -1,7 +1,7 @@
 ---
 title: "I Built an NFL Power Index. The Closing Line Still Beat It."
 subtitle: "Six strategies, six losses — and nothing the closing line had missed."
-description: "Six betting strategies tested against real closing lines. All six lost money — an NFL analytics case study in respecting the benchmark."
+description: "I built an NFL power index, then checked it against the betting market's own closing prices. It found nothing the market had missed, and all six ways of betting it lost money. A case study in what a negative result looks like."
 date: 2026-09-11
 author: "Helio"
 categories: [nfl, methodology, betting-markets, football-analytics]
@@ -13,9 +13,11 @@ format:
 
 ::: {.callout-important}
 ## The finding
-The real closing-line backtest detects **no significant residual signal** from
-my power index. **All six tested strategies lost in aggregate net of vig** over
-the saved strategy-evaluation seasons. These results do not support staking money.
+Tested against the real closing lines — the market's final price on each game —
+my power index turned out to hold **no information the market had not already
+priced**. Betting on it would have lost money: **all six strategies I tried
+finished in the red once the bookmaker's cut is taken out**, across every
+season they were tested on. **These results do not support staking money.**
 :::
 
 ## What the power index is
@@ -115,10 +117,12 @@ the rating gap to whether a team covered the spread, which is the
 **against-the-spread (ATS)** result: not who won the game, but who beat the
 handicap.
 
-**Failing to reject the null is not proof that the market is universally
-efficient.** It means these tests did not detect the proposed signal in this
-sample. It does not rule out smaller effects, other features, other markets, or
-future changes.
+**Not finding something is not the same as proving there is nothing there.**
+These four tests, on this set of games, did not detect the signal I proposed.
+That leaves the door open to a smaller effect than these tests could see, to a
+different set of features, to other betting markets, and to the market
+changing in future. It is not a verdict that betting markets are efficient
+everywhere.
 
 ::: {.callout-note collapse="true"}
 ## The coefficient table, and how the intervals were built
@@ -169,12 +173,15 @@ book-by-book price series. The implementation excludes pushes from both the bet
 ledger and ROI denominator. ROI is profit divided by recorded stake, not a
 compounded bankroll return.
 
-The least-negative threshold is not a discovered winner. Threshold samples
-overlap and were compared on the same historical period. Some individual
-strategy-seasons were profitable; the claim is about each strategy's **aggregate**
-result. The chart shows observed returns, not confidence intervals or forecasts
-of future losses. No live execution, liquidity, or line-shopping advantage is
-demonstrated.
+One of the six lost less than the others. That is not a winner I found — it is
+the best of six losses, and picking it after the fact is exactly the mistake
+this post is about. The six rules were not independent: they were scored on
+the same years, and they bet many of the same games. Some of them did make
+money in some individual seasons; **the losing result is about each rule
+totalled over all its seasons.** And the chart shows what happened, not a
+range of what could happen or a forecast of future losses. Nothing here
+demonstrates an advantage from live execution, from being able to get a bet
+on, or from shopping between books.
 
 ::: {.callout-note collapse="true"}
 ## How the moneyline rule was sized
@@ -216,10 +223,12 @@ not a substitute for an out-of-sample improvement.
 
 ## The result worth publishing
 
-The portfolio achievement is a research question answered without turning an
-interesting football feature into an unsupported market claim. The next credible
-step would require new, genuinely held-out evidence and a pre-specified test,
-not selecting whichever historical threshold looks least bad.
+What I am proud of here is not the index. It is that the index was tested
+honestly and reported as it came out, instead of being dressed up as an edge it
+never had. If I wanted to take this further, the only credible route is new
+data the model has never seen and a test written down **before** looking at the
+results — not going back through the same history for whichever threshold
+flatters it.
 
 Historical opening-line and CLV findings are excluded entirely: their old openers
 were synthetic. `R/11_scrape_opening_lines.R` now refuses to run. Invalid input
