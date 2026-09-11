@@ -167,10 +167,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#a-football-story-is-not-a-market-advantage" id="toc-a-football-story-is-not-a-market-advantage" class="nav-link active" data-scroll-target="#a-football-story-is-not-a-market-advantage">A football story is not a market advantage</a></li>
-  <li><a href="#put-the-markets-error-on-the-scoreboard" id="toc-put-the-markets-error-on-the-scoreboard" class="nav-link" data-scroll-target="#put-the-markets-error-on-the-scoreboard">Put the market’s error on the scoreboard</a></li>
-  <li><a href="#after-the-bookmakers-margin-every-aggregate-strategy-loses" id="toc-after-the-bookmakers-margin-every-aggregate-strategy-loses" class="nav-link" data-scroll-target="#after-the-bookmakers-margin-every-aggregate-strategy-loses">After the bookmaker’s margin, every aggregate strategy loses</a></li>
-  <li><a href="#a-promising-feature-block-is-still-an-unresolved-result" id="toc-a-promising-feature-block-is-still-an-unresolved-result" class="nav-link" data-scroll-target="#a-promising-feature-block-is-still-an-unresolved-result">A promising feature block is still an unresolved result</a></li>
+  <li><a href="#what-the-power-index-is" id="toc-what-the-power-index-is" class="nav-link active" data-scroll-target="#what-the-power-index-is">What the power index is</a></li>
+  <li><a href="#what-the-index-says-right-now" id="toc-what-the-index-says-right-now" class="nav-link" data-scroll-target="#what-the-index-says-right-now">What the index says right now</a></li>
+  <li><a href="#the-benchmark-this-has-to-beat" id="toc-the-benchmark-this-has-to-beat" class="nav-link" data-scroll-target="#the-benchmark-this-has-to-beat">The benchmark this has to beat</a></li>
+  <li><a href="#test-one-does-the-index-know-anything-the-closing-line-missed" id="toc-test-one-does-the-index-know-anything-the-closing-line-missed" class="nav-link" data-scroll-target="#test-one-does-the-index-know-anything-the-closing-line-missed">Test one: does the index know anything the closing line missed?</a></li>
+  <li><a href="#test-two-would-betting-on-it-have-made-money" id="toc-test-two-would-betting-on-it-have-made-money" class="nav-link" data-scroll-target="#test-two-would-betting-on-it-have-made-money">Test two: would betting on it have made money?</a></li>
+  <li><a href="#one-question-that-is-still-open" id="toc-one-question-that-is-still-open" class="nav-link" data-scroll-target="#one-question-that-is-still-open">One question that is still open</a></li>
   <li><a href="#the-result-worth-publishing" id="toc-the-result-worth-publishing" class="nav-link" data-scroll-target="#the-result-worth-publishing">The result worth publishing</a></li>
   </ul>
 </nav>
@@ -234,22 +236,127 @@ The finding
 <p>The real closing-line backtest detects <strong>no significant residual signal</strong> from my power index. <strong>All six tested strategies lost in aggregate net of vig</strong> over the saved strategy-evaluation seasons. These results do not support staking money.</p>
 </div>
 </div>
-<section id="a-football-story-is-not-a-market-advantage" class="level2">
-<h2 class="anchored" data-anchor-id="a-football-story-is-not-a-market-advantage">A football story is not a market advantage</h2>
-<p>The index starts with a reasonable football question: can a team’s efficiency, physicality, and situational tendencies help explain its strength? EPA—expected points added—summarises the change in scoring expectation produced by a play. The composite combines offensive and defensive EPA with schematic proxies such as stuffed runs, long third downs, personnel usage, and four-man pressure.</p>
-<p>Those ingredients can make a useful descriptive ranking. To establish an edge, however, the ranking must say something the closing line does not already price. The title refers to that economic comparison: it is <strong>not</strong> a claim that this article directly compares the power index and the market on Brier score.</p>
-<p>The index uses hand-set weights and constructed tier labels, not observed or validated Bootleg Football ratings. The saved descriptive rankings include the current game. The backtest producer instead rebuilds lagged ratings and fits rating-to-margin and rating-to-win-probability mappings using earlier seasons only. This publication reads the resulting backtest artifacts; it does not rebuild either ratings or models.</p>
+<section id="what-the-power-index-is" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-power-index-is">What the power index is</h2>
+<p>Every week, the index gives each of the 32 NFL teams a single number for how well it has been playing. Four ingredients go into that number.</p>
+<p>The largest is <strong>efficiency</strong>. The measure behind it is EPA — expected points added. Before every play, you can work out how many points a team is likely to score on the drive from where it is standing. EPA is the change in that number once the play is over: a first-down conversion is worth positive EPA, a sack is worth negative EPA. Averaged over a season, it separates teams that move the ball from teams that only look busy.</p>
+<p>The other three ingredients are descriptive colour about <em>how</em> a team plays: how often it stuffs opposing runs, how often it faces long third downs, what personnel it puts on the field, and how much pressure it generates with four rushers. Each ingredient is put on a common scale before the four are combined, and the weights are set by hand rather than fitted to anything.</p>
+<p>The score is then expressed in <strong>standard deviations from that week’s league average</strong> — zero is an ordinary team, +1 is a strong one, −1 a poor one. The five tier bands are simply the league cut into fifths by that score, with one override that moves a high-efficiency, low-discipline team down a band. <strong>The tier names are this project’s own vocabulary, imposed on the composite. They are not ratings that were measured against any outside source, and nothing here was fitted to or validated against external tier labels.</strong></p>
 </section>
-<section id="put-the-markets-error-on-the-scoreboard" class="level2">
-<h2 class="anchored" data-anchor-id="put-the-markets-error-on-the-scoreboard">Put the market’s error on the scoreboard</h2>
-<p>The first test asks whether the home-minus-away rating differential explains actual home margin minus the closing spread. If the index contains information missing from the close, its coefficient might differ from zero. The saved estimate does not clear that test.</p>
-<p>Two further coefficients examine closing-spread calibration: the intercept’s null is <strong>zero</strong>, while the slope’s null is <strong>one</strong>. A fourth test relates the rating differential to covering the spread. Testing every coefficient against zero would answer the wrong question for the calibration slope.</p>
+<section id="what-the-index-says-right-now" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-index-says-right-now">What the index says right now</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../_generated/power-index.png" class="img-fluid figure-img" alt="Horizontal bar chart of all 32 NFL teams ranked by power index score for the 2025 season through week 18, faceted into five tier bands from S-Tier at the top to D-Tier at the bottom. Scores run from about +1.44 to −2.04 standard deviations from the league average."></p>
+<figcaption>The power index for every NFL team, grouped into its five tier bands.</figcaption>
+</figure>
+</div>
+<p>The table below reads the same snapshot as the chart: the 2025 regular season through week 18, 32 teams, split into five equal bands by score.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 51%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 12%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Tier band</th>
+<th style="text-align: right;">Teams</th>
+<th style="text-align: left;">Ranks</th>
+<th style="text-align: left;">Score range</th>
+<th style="text-align: left;">Who is in it</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">S-Tier: Contenders / Elite Identity</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">1-6</td>
+<td style="text-align: left;">+1.44 to +0.81</td>
+<td style="text-align: left;">LA, BUF, NE, CIN, JAX, MIN</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A-Tier: Dark Horse / Heavy Schemes</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">7-12</td>
+<td style="text-align: left;">+0.64 to +0.46</td>
+<td style="text-align: left;">BAL, DEN, NO, PHI, SEA, CHI</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">B-Tier: Flawed Contenders (High EPA, Low Schematic Discipline)</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">13-18</td>
+<td style="text-align: left;">+0.18 to -0.25</td>
+<td style="text-align: left;">PIT, SF, NYG, HOU, ATL, LAC</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C-Tier: Inconsistent / Rebuilding</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">19-25</td>
+<td style="text-align: left;">-0.26 to -0.47</td>
+<td style="text-align: left;">CAR, DET, TEN, GB, DAL, WAS, MIA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">D-Tier: Fraudulent / High Variance</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">26-32</td>
+<td style="text-align: left;">-0.56 to -2.04</td>
+<td style="text-align: left;">KC, LV, TB, ARI, IND, CLE, NYJ</td>
+</tr>
+</tbody>
+</table>
+<p>That is a perfectly reasonable descriptive ranking. It is also where most football content stops — and where the actual question starts.</p>
+</section>
+<section id="the-benchmark-this-has-to-beat" class="level2">
+<h2 class="anchored" data-anchor-id="the-benchmark-this-has-to-beat">The benchmark this has to beat</h2>
+<p>A betting market publishes a <strong>closing line</strong>: the final price on a game just before kickoff, after everyone who wanted to bet it has bet it. For a point spread, that is the handicap the market settled on — how many points the favourite has to win by. The closing line is the sharpest public summary of a game that exists, because money has been pushing it around all week.</p>
+<p>So a ranking being <em>sensible</em> proves nothing. To establish an edge, it has to say something the closing line does not already price. The title refers to that economic comparison: it is <strong>not</strong> a claim that this article directly compares the power index and the market on Brier score.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How the tested ratings differ from the ranking above (no-lookahead detail)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The chart above is the descriptive form of the index, and it includes the current game — that is what a “how good has this team looked so far” ranking should do. It would be cheating to feed that to a model predicting the same game.</p>
+<p>The index uses hand-set weights and constructed tier labels, not observed or validated external ratings. The saved descriptive rankings include the current game. The backtest producer instead rebuilds lagged ratings and fits rating-to-margin and rating-to-win-probability mappings using earlier seasons only. This publication reads the resulting backtest artifacts; it does not rebuild either ratings or models.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="test-one-does-the-index-know-anything-the-closing-line-missed" class="level2">
+<h2 class="anchored" data-anchor-id="test-one-does-the-index-know-anything-the-closing-line-missed">Test one: does the index know anything the closing line missed?</h2>
+<p>If the index holds information the market has not priced, then the games where it most disagrees with the closing line should be the games the closing line gets most wrong. That is the first test: take the index’s home-minus-away rating gap, and see whether it explains the difference between the real result and the closing spread.</p>
+<p>It does not. The estimated relationship is statistically indistinguishable from nothing — and the same is true of three further tests run alongside it.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../../_generated/efficiency.png" class="img-fluid figure-img" alt="Four faceted coefficient plots. Every approximate 95 percent interval crosses its dashed test-specific null; labels report sample sizes and p-values."></p>
 <figcaption>Four efficiency estimates with approximate 95% intervals; each interval includes its own null.</figcaption>
 </figure>
 </div>
+<p>Each panel shows one estimate and the range of values still consistent with the data, against the dashed line marking what that test would look like if there were nothing to find. In all four, the dashed line sits inside the range.</p>
+<p>Two of those four coefficients ask whether the closing spread is <strong>calibrated</strong> — whether it lands on the real margin on average, rather than running consistently high or low. A perfectly calibrated line has an intercept of <strong>zero</strong>, meaning no constant bias in either direction, and a slope of <strong>one</strong>, meaning a one-point move in the spread goes with a one-point move in the real margin. So the intercept is tested against zero and the slope against one. Testing the slope against zero would instead ask whether the closing spread predicts the margin <em>at all</em> — the wrong question here. The fourth test relates the rating gap to whether a team covered the spread, which is the <strong>against-the-spread (ATS)</strong> result: not who won the game, but who beat the handicap.</p>
+<p><strong>Failing to reject the null is not proof that the market is universally efficient.</strong> It means these tests did not detect the proposed signal in this sample. It does not rule out smaller effects, other features, other markets, or future changes.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The coefficient table, and how the intervals were built
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Every estimate, its null, its interval and its p-value:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -304,13 +411,16 @@ The finding
 </tr>
 </tbody>
 </table>
-<p>The regression universe covers regular seasons <strong>2021–2025</strong>, including the initial season that is training-only for strategy evaluation. The ATS test drops pushes, so it has fewer observations. These are retrospective efficiency tests, not an additional held-out forecasting contest.</p>
+<p>The regression universe covers regular seasons <strong>2021–2025</strong>, including the initial season that is training-only for strategy evaluation. The ATS test drops <strong>pushes</strong> — games that land exactly on the line, where the bet is refunded rather than won or lost — so it has fewer observations. These are retrospective efficiency tests, not an additional held-out forecasting contest.</p>
 <p>The plot reconstructs approximate 95% intervals from the saved, rounded standard errors using the producer’s t reference with <code>n - 2</code> degrees of freedom, including its logistic row. These are ordinary model standard errors, not team- or season-clustered errors. The panel scales and coefficient units differ.</p>
-<p><strong>Failing to reject the null is not proof that the market is universally efficient.</strong> It means these tests did not detect the proposed signal in this sample. It does not rule out smaller effects, other features, other markets, or future changes.</p>
+</div>
+</div>
+</div>
 </section>
-<section id="after-the-bookmakers-margin-every-aggregate-strategy-loses" class="level2">
-<h2 class="anchored" data-anchor-id="after-the-bookmakers-margin-every-aggregate-strategy-loses">After the bookmaker’s margin, every aggregate strategy loses</h2>
-<p>The economic test evaluates five absolute spread-edge thresholds and one fractional-Kelly moneyline rule. Strategy outcomes cover <strong>2022–2025</strong>; 2021 supplies initial training history and is never bet.</p>
+<section id="test-two-would-betting-on-it-have-made-money" class="level2">
+<h2 class="anchored" data-anchor-id="test-two-would-betting-on-it-have-made-money">Test two: would betting on it have made money?</h2>
+<p>The statistical test is the strict one. The economic test is the one people actually care about: if you had bet every game where the index disagreed with the closing line by more than some amount, what would have happened?</p>
+<p>Six versions of that rule were tried — five thresholds on the point spread, and one on the moneyline, the straight win-loss price. <strong>All six lost money in aggregate</strong>, after the bookmaker’s cut.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../../_generated/roi.png" class="img-fluid figure-img" alt="Horizontal bars show negative aggregate net ROI for five spread-edge thresholds and one moneyline strategy. Bet counts are printed beside each bar."></p>
@@ -358,12 +468,40 @@ The finding
 </tr>
 </tbody>
 </table>
-<p>Spread rules use a one-unit stake at an <strong>assumed fixed −110 price</strong>. The closing spread is real; that fixed spread price is an assumption, not a historical book-by-book price series. The implementation excludes pushes from both the bet ledger and ROI denominator. ROI is profit divided by recorded stake, not a compounded bankroll return.</p>
+<p>Strategy outcomes cover <strong>2022–2025</strong>; 2021 supplies initial training history and is never bet. Spread rules use a one-unit stake at an <strong>assumed fixed −110 price</strong> — the standard bookmaker’s charge of risking 110 to win 100. The closing spread is real; that fixed spread price is an assumption, not a historical book-by-book price series. The implementation excludes pushes from both the bet ledger and ROI denominator. ROI is profit divided by recorded stake, not a compounded bankroll return.</p>
+<p>The least-negative threshold is not a discovered winner. Threshold samples overlap and were compared on the same historical period. Some individual strategy-seasons were profitable; the claim is about each strategy’s <strong>aggregate</strong> result. The chart shows observed returns, not confidence intervals or forecasts of future losses. No live execution, liquidity, or line-shopping advantage is demonstrated.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How the moneyline rule was sized
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>The moneyline rule uses saved offered closing odds, proportional no-vig probabilities for the edge comparison, quarter-Kelly sizing, and a 5% per-bet stake cap. Its threshold is a probability difference, not spread points; the chart labels those units separately. Its reported ROI is also profit divided by stake, not a simulated season’s bankroll percentage change.</p>
-<p>The less-negative threshold is not a discovered winner. Threshold samples overlap and were compared on the same historical period. Some individual strategy-seasons were profitable; the claim is about each strategy’s <strong>aggregate</strong> result. The chart shows observed returns, not confidence intervals or forecasts of future losses. No live execution, liquidity, or line-shopping advantage is demonstrated.</p>
+</div>
+</div>
+</div>
 </section>
-<section id="a-promising-feature-block-is-still-an-unresolved-result" class="level2">
-<h2 class="anchored" data-anchor-id="a-promising-feature-block-is-still-an-unresolved-result">A promising feature block is still an unresolved result</h2>
+<section id="one-question-that-is-still-open" class="level2">
+<h2 class="anchored" data-anchor-id="one-question-that-is-still-open">One question that is still open</h2>
+<p>A separate experiment asked a narrower version of the same thing: do the schematic ingredients add anything on top of plain EPA when predicting who wins? The answer leans yes but does not clear the bar — both point estimates favour the fuller model, and both uncertainty ranges still include “no difference.”</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The incremental-value result in full
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>A separate calibrated XGBoost experiment asks whether schematic features add predictive value beyond baseline EPA. Negative Brier deltas favour the full model. Both saved point estimates are negative, but both paired-bootstrap intervals cross zero:</p>
 <table class="caption-top table">
 <colgroup>
@@ -396,13 +534,16 @@ The finding
 </tbody>
 </table>
 <p>These are game-paired percentile intervals from 2,000 bootstrap resamples. Split A tests 2024–2025; split B tests 2025, so the test windows overlap—they are not independent replications. The schematic block is <strong>directionally better, not established at 95%</strong>. Feature importance is not causal evidence, and it is not a substitute for an out-of-sample improvement.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="the-result-worth-publishing" class="level2">
 <h2 class="anchored" data-anchor-id="the-result-worth-publishing">The result worth publishing</h2>
 <p>The portfolio achievement is a research question answered without turning an interesting football feature into an unsupported market claim. The next credible step would require new, genuinely held-out evidence and a pre-specified test, not selecting whichever historical threshold looks least bad.</p>
 <p>Historical opening-line and CLV findings are excluded entirely: their old openers were synthetic. <code>R/11_scrape_opening_lines.R</code> now refuses to run. Invalid input cannot be rehabilitated with an attractive result or a small-sample caveat.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -411,19 +552,19 @@ Artifact fingerprints
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <section id="artifact-fingerprints-1" class="level3">
 <h3 class="anchored" data-anchor-id="artifact-fingerprints-1">Artifact fingerprints</h3>
-<p>Generated: 2026-09-11T06:16:42Z</p>
-<p>Source repo Git SHA: ac4d3d5010df661cfc226dc7152d7a002b689458</p>
+<p>Generated: 2026-09-11T16:44:24Z</p>
+<p>Source repo Git SHA: 3660217976d2cf2758b3ccb85b7952347f819e78</p>
 <p>Data range: NFL regular seasons 2021-2025 (efficiency universe / model development); strategy evaluation 2022-2025; saved model tests 2024-2025.</p>
 <p>Research only - no picks, no staking advice, no established market edge.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 40%">
+<col style="width: 42%">
 <col style="width: 4%">
-<col style="width: 55%">
+<col style="width: 53%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -434,46 +575,51 @@ Artifact fingerprints
 </thead>
 <tbody>
 <tr class="odd">
+<td style="text-align: left;">data/03_features/37_bootleg_power_rankings.parquet</td>
+<td style="text-align: right;">2390</td>
+<td style="text-align: left;">16023d77bb812bda0af381b9358139581374361590da8bdf43ab2b203fb0e859</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">data/04_models/36_model_metrics.parquet</td>
 <td style="text-align: right;">8</td>
 <td style="text-align: left;">d83f928f256b6e4685431a4f61720f7eae9d20c44f5a4e67cc0874be7364898f</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">data/04_models/36_predictions.parquet</td>
 <td style="text-align: right;">1340</td>
 <td style="text-align: left;">1a703913e33ef86c3f1dcc3127c413aa008b716aca0e7680aac052ba9ec6d1c6</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">data/04_models/36_feature_importance.parquet</td>
 <td style="text-align: right;">20</td>
 <td style="text-align: left;">129a59f1e77da7135eab2d75c817690e30de7835fed3cc9e3996062c2d42ec91</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">data/04_models/36_calibration.parquet</td>
 <td style="text-align: right;">21</td>
 <td style="text-align: left;">4ecea4374cec372a1dcbeea0170e0ecea299884b9de1f1361369c95bf76e3b59</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">data/04_models/36_incremental_value.parquet</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: left;">043988f307faee722987bba0546899fa34b4dcaeea18a0e28162cc40838f1c48</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">data/05_backtests/38_market_efficiency.parquet</td>
 <td style="text-align: right;">10</td>
 <td style="text-align: left;">134bb6585d6ccf94eb2582a3b656ed0d0ee0b51c5ca64cae7247ec136caad83c</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">data/05_backtests/38_strategy_summary.parquet</td>
 <td style="text-align: right;">6</td>
 <td style="text-align: left;">ebc9407bb641e9e641eb5a64d84ffdd0e412066ff2dac2958e3902c21ed77995</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">data/05_backtests/38_strategy_by_season.parquet</td>
 <td style="text-align: right;">24</td>
 <td style="text-align: left;">cf0bfaa03c56db640d48b6b8c5b9ee13ec70ce4d809b6966ec771148050a284e</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">data/05_backtests/38_bets.parquet</td>
 <td style="text-align: right;">4108</td>
 <td style="text-align: left;">7dce083ec8d69fe3e91f3a93e7d55a31b3fb70e1b20fe48fefa6412b467f46df</td>
@@ -502,11 +648,11 @@ Artifact fingerprints
 </tr>
 <tr class="even">
 <td style="text-align: left;">posts/market-efficiency/index.qmd</td>
-<td style="text-align: left;">7d6a169e60e394ccef0e3e8780654912dd2cabc1933fe019c4272fcf004ace11</td>
+<td style="text-align: left;">04690ff48c357b314e7bf33e499d64c56dce093e9ce786e1951d191fa88f954e</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">scripts/generate_market_efficiency.R</td>
-<td style="text-align: left;">7868b5e28e0161d7081fafbad9a5fa8b3505170738f4d329ec6671952cae8a9c</td>
+<td style="text-align: left;">6b7894daae507b962c31b6e858505d2bb087f60517389b243afc5ceb35330aa7</td>
 </tr>
 </tbody>
 </table>
@@ -527,14 +673,15 @@ Artifact fingerprints
   <p class="scope-disclaimer"><strong>Research only - no picks, no staking advice, no established market edge.</strong></p>
   <dl>
     <dt>Data range</dt><dd>NFL regular seasons 2021-2025 (efficiency universe / model development); strategy evaluation 2022-2025; saved model tests 2024-2025.</dd>
-    <dt>Generated / render timestamp (UTC)</dt><dd><time>2026-09-11T06:16:42Z</time></dd>
-    <dt>Git SHA of the nfl_analytics source checkout</dt><dd><code>ac4d3d5010df661cfc226dc7152d7a002b689458</code></dd>
+    <dt>Generated / render timestamp (UTC)</dt><dd><time>2026-09-11T16:44:24Z</time></dd>
+    <dt>Git SHA of the nfl_analytics source checkout</dt><dd><code>3660217976d2cf2758b3ccb85b7952347f819e78</code></dd>
     <dt>Source working tree at render</dt><dd>clean</dd>
   </dl>
   <p>The timestamp dates this publication build, not the underlying analysis.
   The checkout SHA is not a verified artifact-creation SHA; that historical lineage
   is unavailable in the saved parquet schema. See the artifact fingerprints on this page for per-file SHA-256 hashes.</p>
-  <details><summary>Source artifacts (repository-relative paths)</summary><ul><li><code>data/04_models/36_model_metrics.parquet</code></li>
+  <details><summary>Source artifacts (repository-relative paths)</summary><ul><li><code>data/03_features/37_bootleg_power_rankings.parquet</code></li>
+<li><code>data/04_models/36_model_metrics.parquet</code></li>
 <li><code>data/04_models/36_predictions.parquet</code></li>
 <li><code>data/04_models/36_feature_importance.parquet</code></li>
 <li><code>data/04_models/36_calibration.parquet</code></li>
@@ -1176,137 +1323,226 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>the saved strategy-evaluation seasons. These results do not support staking money.</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## A football story is not a market advantage</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## What the power index is</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>The index starts with a reasonable football question: can a team's efficiency,</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>physicality, and situational tendencies help explain its strength? EPA—expected</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>points added—summarises the change in scoring expectation produced by a play.</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>The composite combines offensive and defensive EPA with schematic proxies such</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>as stuffed runs, long third downs, personnel usage, and four-man pressure.</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>Those ingredients can make a useful descriptive ranking. To establish an edge,</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>however, the ranking must say something the closing line does not already price.</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>The title refers to that economic comparison: it is **not** a claim that this</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>article directly compares the power index and the market on Brier score.</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>The index uses hand-set weights and constructed tier labels, not observed or</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>validated Bootleg Football ratings. The saved descriptive rankings include the</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>current game. The backtest producer instead rebuilds lagged ratings and fits</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>rating-to-margin and rating-to-win-probability mappings using earlier seasons</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>only. This publication reads the resulting backtest artifacts; it does not</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>rebuild either ratings or models.</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Put the market's error on the scoreboard</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>The first test asks whether the home-minus-away rating differential explains</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>actual home margin minus the closing spread. If the index contains information</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>missing from the close, its coefficient might differ from zero. The saved</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>estimate does not clear that test.</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>Two further coefficients examine closing-spread calibration: the intercept's</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>null is **zero**, while the slope's null is **one**. A fourth test relates the</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>rating differential to covering the spread. Testing every coefficient against</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>zero would answer the wrong question for the calibration slope.</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="al">![Four efficiency estimates with approximate 95% intervals; each interval includes its own null.](../../_generated/efficiency.png)</span>{fig-alt="Four faceted coefficient plots. Every approximate 95 percent interval crosses its dashed test-specific null; labels report sample sizes and p-values."}</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">readLines</span>(<span class="st">"../../_generated/efficiency.qmd"</span>), <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>The regression universe covers regular seasons **2021–2025**, including the</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>initial season that is training-only for strategy evaluation. The ATS test drops</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>pushes, so it has fewer observations. These are retrospective efficiency tests,</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>not an additional held-out forecasting contest.</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>The plot reconstructs approximate 95% intervals from the saved, rounded standard</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>errors using the producer's t reference with <span class="in">`n - 2`</span> degrees of freedom, including</span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>its logistic row. These are ordinary model standard errors, not team- or</span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>season-clustered errors. The panel scales and coefficient units differ.</span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>**Failing to reject the null is not proof that the market is universally</span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>efficient.** It means these tests did not detect the proposed signal in this</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>sample. It does not rule out smaller effects, other features, other markets, or</span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>future changes.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>Every week, the index gives each of the 32 NFL teams a single number for how</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>well it has been playing. Four ingredients go into that number.</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>The largest is **efficiency**. The measure behind it is EPA — expected points</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>added. Before every play, you can work out how many points a team is likely to</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>score on the drive from where it is standing. EPA is the change in that number</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>once the play is over: a first-down conversion is worth positive EPA, a sack is</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>worth negative EPA. Averaged over a season, it separates teams that move the</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>ball from teams that only look busy.</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>The other three ingredients are descriptive colour about *how* a team plays:</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>how often it stuffs opposing runs, how often it faces long third downs, what</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>personnel it puts on the field, and how much pressure it generates with four</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>rushers. Each ingredient is put on a common scale before the four are combined,</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>and the weights are set by hand rather than fitted to anything.</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>The score is then expressed in **standard deviations from that week's league</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>average** — zero is an ordinary team, +1 is a strong one, −1 a poor one. The</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>five tier bands are simply the league cut into fifths by that score, with one</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>override that moves a high-efficiency, low-discipline team down a band. **The</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>tier names are this project's own vocabulary, imposed on the composite. They</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>are not ratings that were measured against any outside source, and nothing here</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>was fitted to or validated against external tier labels.**</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## What the index says right now</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="al">![The power index for every NFL team, grouped into its five tier bands.](../../_generated/power-index.png)</span>{fig-alt="Horizontal bar chart of all 32 NFL teams ranked by power index score for the 2025 season through week 18, faceted into five tier bands from S-Tier at the top to D-Tier at the bottom. Scores run from about +1.44 to −2.04 standard deviations from the league average."}</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">readLines</span>(<span class="st">"../../_generated/power-index.qmd"</span>), <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>That is a perfectly reasonable descriptive ranking. It is also where most</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>football content stops — and where the actual question starts.</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="fu">## The benchmark this has to beat</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>A betting market publishes a **closing line**: the final price on a game just</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>before kickoff, after everyone who wanted to bet it has bet it. For a point</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>spread, that is the handicap the market settled on — how many points the</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>favourite has to win by. The closing line is the sharpest public summary of a</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>game that exists, because money has been pushing it around all week.</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>So a ranking being *sensible* proves nothing. To establish an edge, it has to</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>say something the closing line does not already price. The title refers to that</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>economic comparison: it is **not** a claim that this article directly compares</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>the power index and the market on Brier score.</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="fu">## How the tested ratings differ from the ranking above (no-lookahead detail)</span></span>
 <span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="fu">## After the bookmaker's margin, every aggregate strategy loses</span></span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>The economic test evaluates five absolute spread-edge thresholds and one</span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>fractional-Kelly moneyline rule. Strategy outcomes cover **2022–2025**; 2021</span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>supplies initial training history and is never bet.</span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="al">![Net ROI for all six strategies; every aggregate return is below zero, with bet counts shown.](../../_generated/roi.png)</span>{fig-alt="Horizontal bars show negative aggregate net ROI for five spread-edge thresholds and one moneyline strategy. Bet counts are printed beside each bar."}</span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">readLines</span>(<span class="st">"../../_generated/strategies.qmd"</span>), <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>Spread rules use a one-unit stake at an **assumed fixed −110 price**. The closing</span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>spread is real; that fixed spread price is an assumption, not a historical</span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>book-by-book price series. The implementation excludes pushes from both the bet</span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>ledger and ROI denominator. ROI is profit divided by recorded stake, not a</span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>compounded bankroll return.</span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>The moneyline rule uses saved offered closing odds, proportional no-vig</span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>probabilities for the edge comparison, quarter-Kelly sizing, and a 5% per-bet</span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>stake cap. Its threshold is a probability difference, not spread points; the</span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>chart labels those units separately. Its reported ROI is also profit divided by</span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>stake, not a simulated season's bankroll percentage change.</span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>The less-negative threshold is not a discovered winner. Threshold samples</span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>overlap and were compared on the same historical period. Some individual</span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>strategy-seasons were profitable; the claim is about each strategy's **aggregate**</span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>result. The chart shows observed returns, not confidence intervals or forecasts</span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>of future losses. No live execution, liquidity, or line-shopping advantage is</span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>demonstrated.</span>
-<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="fu">## A promising feature block is still an unresolved result</span></span>
-<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>A separate calibrated XGBoost experiment asks whether schematic features add</span>
-<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>predictive value beyond baseline EPA. Negative Brier deltas favour the full</span>
-<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>model. Both saved point estimates are negative, but both paired-bootstrap</span>
-<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>intervals cross zero:</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>The chart above is the descriptive form of the index, and it includes the</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>current game — that is what a "how good has this team looked so far" ranking</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>should do. It would be cheating to feed that to a model predicting the same</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>game.</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>The index uses hand-set weights and constructed tier labels, not observed or</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>validated external ratings. The saved descriptive rankings include the current</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>game. The backtest producer instead rebuilds lagged ratings and fits</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>rating-to-margin and rating-to-win-probability mappings using earlier seasons</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>only. This publication reads the resulting backtest artifacts; it does not</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>rebuild either ratings or models.</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="fu">## Test one: does the index know anything the closing line missed?</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>If the index holds information the market has not priced, then the games where</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>it most disagrees with the closing line should be the games the closing line</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>gets most wrong. That is the first test: take the index's home-minus-away</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>rating gap, and see whether it explains the difference between the real result</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>and the closing spread.</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>It does not. The estimated relationship is statistically indistinguishable from</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>nothing — and the same is true of three further tests run alongside it.</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="al">![Four efficiency estimates with approximate 95% intervals; each interval includes its own null.](../../_generated/efficiency.png)</span>{fig-alt="Four faceted coefficient plots. Every approximate 95 percent interval crosses its dashed test-specific null; labels report sample sizes and p-values."}</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>Each panel shows one estimate and the range of values still consistent with the</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>data, against the dashed line marking what that test would look like if there</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>were nothing to find. In all four, the dashed line sits inside the range.</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>Two of those four coefficients ask whether the closing spread is **calibrated** —</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>whether it lands on the real margin on average, rather than running</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>consistently high or low. A perfectly calibrated line has an intercept of</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>**zero**, meaning no constant bias in either direction, and a slope of **one**,</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>meaning a one-point move in the spread goes with a one-point move in the real</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>margin. So the intercept is tested against zero and the slope against one.</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>Testing the slope against zero would instead ask whether the closing spread</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>predicts the margin *at all* — the wrong question here. The fourth test relates</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>the rating gap to whether a team covered the spread, which is the</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>**against-the-spread (ATS)** result: not who won the game, but who beat the</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>handicap.</span>
 <span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
-<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">readLines</span>(<span class="st">"../../_generated/incremental.qmd"</span>), <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>**Failing to reject the null is not proof that the market is universally</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>efficient.** It means these tests did not detect the proposed signal in this</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>sample. It does not rule out smaller effects, other features, other markets, or</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>future changes.</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="fu">## The coefficient table, and how the intervals were built</span></span>
 <span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>These are game-paired percentile intervals from 2,000 bootstrap resamples.</span>
-<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>Split A tests 2024–2025; split B tests 2025, so the test windows overlap—they</span>
-<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>are not independent replications. The schematic block is **directionally better,</span>
-<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>not established at 95%**. Feature importance is not causal evidence, and it is</span>
-<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>not a substitute for an out-of-sample improvement.</span>
-<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="fu">## The result worth publishing</span></span>
-<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>The portfolio achievement is a research question answered without turning an</span>
-<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>interesting football feature into an unsupported market claim. The next credible</span>
-<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>step would require new, genuinely held-out evidence and a pre-specified test,</span>
-<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>not selecting whichever historical threshold looks least bad.</span>
-<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>Historical opening-line and CLV findings are excluded entirely: their old openers</span>
-<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>were synthetic. <span class="in">`R/11_scrape_opening_lines.R`</span> now refuses to run. Invalid input</span>
-<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>cannot be rehabilitated with an attractive result or a small-sample caveat.</span>
-<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
-<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a><span class="fu">## Artifact fingerprints</span></span>
-<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
-<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">readLines</span>(<span class="st">"../../_generated/manifest.qmd"</span>), <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>)</span>
-<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">readLines</span>(<span class="st">"../../_generated/source-manifest.qmd"</span>), <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Methodology and limitations</span><span class="co">](../../methodology.qmd)</span> · <span class="co">[</span><span class="ot">Artifact provenance</span><span class="co">](../../artifacts.qmd)</span></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>Every estimate, its null, its interval and its p-value:</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">readLines</span>(<span class="st">"../../_generated/efficiency.qmd"</span>), <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>The regression universe covers regular seasons **2021–2025**, including the</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>initial season that is training-only for strategy evaluation. The ATS test drops</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>**pushes** — games that land exactly on the line, where the bet is refunded</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>rather than won or lost — so it has fewer observations. These are retrospective</span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>efficiency tests, not an additional held-out forecasting contest.</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>The plot reconstructs approximate 95% intervals from the saved, rounded standard</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>errors using the producer's t reference with <span class="in">`n - 2`</span> degrees of freedom, including</span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>its logistic row. These are ordinary model standard errors, not team- or</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a>season-clustered errors. The panel scales and coefficient units differ.</span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="fu">## Test two: would betting on it have made money?</span></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a>The statistical test is the strict one. The economic test is the one people</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>actually care about: if you had bet every game where the index disagreed with</span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a>the closing line by more than some amount, what would have happened?</span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a>Six versions of that rule were tried — five thresholds on the point spread, and</span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a>one on the moneyline, the straight win-loss price. **All six lost money in</span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>aggregate**, after the bookmaker's cut.</span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="al">![Net ROI for all six strategies; every aggregate return is below zero, with bet counts shown.](../../_generated/roi.png)</span>{fig-alt="Horizontal bars show negative aggregate net ROI for five spread-edge thresholds and one moneyline strategy. Bet counts are printed beside each bar."}</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">readLines</span>(<span class="st">"../../_generated/strategies.qmd"</span>), <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>Strategy outcomes cover **2022–2025**; 2021 supplies initial training history and</span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a>is never bet. Spread rules use a one-unit stake at an **assumed fixed −110</span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a>price** — the standard bookmaker's charge of risking 110 to win 100. The closing</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>spread is real; that fixed spread price is an assumption, not a historical</span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>book-by-book price series. The implementation excludes pushes from both the bet</span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a>ledger and ROI denominator. ROI is profit divided by recorded stake, not a</span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a>compounded bankroll return.</span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a>The least-negative threshold is not a discovered winner. Threshold samples</span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a>overlap and were compared on the same historical period. Some individual</span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>strategy-seasons were profitable; the claim is about each strategy's **aggregate**</span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>result. The chart shows observed returns, not confidence intervals or forecasts</span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a>of future losses. No live execution, liquidity, or line-shopping advantage is</span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a>demonstrated.</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a><span class="fu">## How the moneyline rule was sized</span></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a>The moneyline rule uses saved offered closing odds, proportional no-vig</span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>probabilities for the edge comparison, quarter-Kelly sizing, and a 5% per-bet</span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a>stake cap. Its threshold is a probability difference, not spread points; the</span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>chart labels those units separately. Its reported ROI is also profit divided by</span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>stake, not a simulated season's bankroll percentage change.</span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a><span class="fu">## One question that is still open</span></span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a>A separate experiment asked a narrower version of the same thing: do the</span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a>schematic ingredients add anything on top of plain EPA when predicting who wins?</span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>The answer leans yes but does not clear the bar — both point estimates favour</span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a>the fuller model, and both uncertainty ranges still include "no difference."</span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a><span class="fu">## The incremental-value result in full</span></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a>A separate calibrated XGBoost experiment asks whether schematic features add</span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>predictive value beyond baseline EPA. Negative Brier deltas favour the full</span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a>model. Both saved point estimates are negative, but both paired-bootstrap</span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a>intervals cross zero:</span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">readLines</span>(<span class="st">"../../_generated/incremental.qmd"</span>), <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a>These are game-paired percentile intervals from 2,000 bootstrap resamples.</span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a>Split A tests 2024–2025; split B tests 2025, so the test windows overlap—they</span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a>are not independent replications. The schematic block is **directionally better,</span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a>not established at 95%**. Feature importance is not causal evidence, and it is</span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a>not a substitute for an out-of-sample improvement.</span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a><span class="fu">## The result worth publishing</span></span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a>The portfolio achievement is a research question answered without turning an</span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>interesting football feature into an unsupported market claim. The next credible</span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>step would require new, genuinely held-out evidence and a pre-specified test,</span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a>not selecting whichever historical threshold looks least bad.</span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a>Historical opening-line and CLV findings are excluded entirely: their old openers</span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a>were synthetic. <span class="in">`R/11_scrape_opening_lines.R`</span> now refuses to run. Invalid input</span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a>cannot be rehabilitated with an attractive result or a small-sample caveat.</span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a><span class="fu">## Artifact fingerprints</span></span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">readLines</span>(<span class="st">"../../_generated/manifest.qmd"</span>), <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>)</span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">readLines</span>(<span class="st">"../../_generated/source-manifest.qmd"</span>), <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Methodology and limitations</span><span class="co">](../../methodology.qmd)</span> · <span class="co">[</span><span class="ot">Artifact provenance</span><span class="co">](../../artifacts.qmd)</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
