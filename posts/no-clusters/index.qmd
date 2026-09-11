@@ -1,6 +1,6 @@
 ---
-title: "I Tried to Cluster NFL Teams. There Are No Clusters."
-subtitle: "Four tests that can each say no, and all four did"
+title: "NFL Teams Don't Come in Types. They Come in Shades."
+subtitle: "Four separate tests each had the chance to find real groups. None of them did."
 description: "Team archetypes are a useful vocabulary, not a discovered structure. Gap statistic, mclust BIC, a null comparison and bootstrap stability all say NFL team-seasons form one continuous cloud."
 date: 2026-08-23
 author: "Helio"

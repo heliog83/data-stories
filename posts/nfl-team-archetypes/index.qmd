@@ -1,6 +1,6 @@
 ---
 title: "Team Archetypes: How NFL Teams Actually Play"
-subtitle: "A taxonomy of 160 team-seasons built from EPA, with the thresholds shown"
+subtitle: "Labels I drew by hand on five seasons of efficiency data — every cut-off shown, and its weak spots named."
 description: "An EPA-based taxonomy of NFL team identity, with every threshold stated and its weak spots named. Explore the profile of all 32 franchises."
 date: 2026-08-23
 author: "Helio"

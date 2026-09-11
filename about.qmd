@@ -8,7 +8,7 @@ I'm Helio — a data analyst based in Mexico who believes the best way to unders
 
 ## What This Blog Is
 
-Every post starts with **one clear question** and tries to answer it with data and a strong chart. I write in three lanes:
+I publish negative results alongside positive ones, state the assumptions in the open, and show the thresholds and prices behind every number. I write in three lanes:
 
 - **🏈 NFL Analytics** — team archetypes, matchup explanations, and betting model research using EPA and play-by-play data
 - **🏃 Personal Data** — what my own Garmin, training, and life data actually show
