@@ -1,0 +1,94 @@
+---
+title: "Artifacts & reproducibility"
+description: "A read-only publication manifest: saved evidence, source paths, hashes, and explicit provenance gaps."
+---
+
+## What gets reproduced
+
+`site/scripts/render-artifacts.R` reads the existing nine parquet files below
+and creates two charts, article tables, and the shared provenance footer under
+`site/_generated/`. `site/scripts/render-matchup.R` separately reads the processed
+football checkpoints returned by `explain_matchup()` and creates one retrospective
+case-study chart, tables, narrative, and a page-specific manifest. Quarto renders
+only the five named pages into `site/_site/`.
+No pipeline/model source is executed, and nothing is written into `data/`,
+`outputs/`, or draft state.
+
+**Public-safe replacement:** the historical NotebookLM corpus, CLV summaries,
+and matchup exports are deliberately excluded. Deploy only `site/_site/`, never
+the repository root or the historic outputs directory.
+
+## Evidence map
+
+| Artifact | Role |
+|---|---|
+| `data/05_backtests/38_market_efficiency.parquet` | Four efficiency-test estimates/SEs/nulls; also contains strategy-summary rows, excluded from the coefficient chart. |
+| `data/05_backtests/38_strategy_summary.parquet` | Aggregate ROI and count for all six strategies. |
+| `data/05_backtests/38_strategy_by_season.parquet` | Season coverage and context: aggregate losses do not mean every season lost. |
+| `data/05_backtests/38_bets.parquet` | Strategy threshold units, evaluation seasons, and independent recomputation of summary ROI. Rows repeat games across strategies. |
+| `data/04_models/36_incremental_value.parquet` | Paired-bootstrap Brier deltas and intervals. |
+| `data/04_models/36_model_metrics.parquet` | Raw and Platt-calibrated performance; a separate experiment from the power-index backtest. |
+| `data/04_models/36_predictions.parquet` | Test-season coverage and game-level predictions, repeated across model blocks and overlapping splits. |
+| `data/04_models/36_calibration.parquet` | Saved calibration-bin context; not a standalone proof of calibration. |
+| `data/04_models/36_feature_importance.parquet` | Feature-gain context, not causal or incremental-value evidence. |
+
+Paths are repository-relative identifiers, **not download links**. Raw artifacts
+are intentionally not bundled. A fresh clone needs the reviewed saved artifacts
+supplied separately; this render fails if they are missing. No fallback uses
+fabricated, stale-text, or demo data.
+
+## Historical matchup snapshot
+
+The matchup walkthrough calls `explain_matchup("PHI", "DAL", 2024, week = 10)`
+against the existing processed checkpoints. It supplies an empty temporary
+`outputs_dir`, so no market or opening-line field can enter the public snapshot.
+The generated page-specific manifest fingerprints every processed RDS checkpoint
+and the source/helper code used. Its mixed time boundary—full-season team metrics
+plus Week 10 quarterback and injury context—is stated in the page, chart caption,
+and manifest.
+
+## Local commands
+
+From the repository root, with Quarto, R, and `arrow`, `ggplot2`, `knitr`, and
+`digest` available:
+
+```sh
+Rscript site/scripts/check-helper.R
+quarto render site
+python3 site/scripts/check-site.py
+git diff --check
+quarto preview site --no-browser
+```
+
+The full render automatically invokes the artifact-only helper. `renv.lock` is
+an upstream environment manifest, not an activated project library. No package
+installation, artifact regeneration, or lockfile changes occur during rendering.
+
+## How to read the provenance
+
+The shared footer records this publication's UTC generation time, current Git
+HEAD, working-tree status, source artifacts, and separate data ranges. It does
+not claim the saved model files were created by that commit or at render time.
+The efficiency summary has no season column: its 2021–2025 range is the reviewed
+scope documented in `AGENTS.md` and the producer, not something inferred from
+the shorter bet ledger. Artifact hashes identify the exact bytes read.
+Publication-source hashes distinguish uncommitted site edits from HEAD.
+
+A fail-closed editorial guard stops rendering if the saved evidence no longer
+supports this article's negative-strategy / unresolved-schematic conclusions.
+This guards the **publication**, not the research pipeline: new evidence must
+prompt an editorial review rather than a model change to force old conclusions.
+
+```{r}
+#| echo: false
+#| results: asis
+cat(readLines("_generated/manifest.qmd"), sep = "\n")
+```
+
+```{r}
+#| echo: false
+#| results: asis
+cat(readLines("_generated/source-manifest.qmd"), sep = "\n")
+```
+
+[Methodology and limitations](methodology.qmd) · [Project overview](index.qmd)

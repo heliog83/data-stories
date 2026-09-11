@@ -1,0 +1,89 @@
+---
+title: "Methodology & limitations"
+description: "Sources, timing rules, uncertainty, and the boundary between descriptive football analysis and validated forecasts."
+---
+
+## Sources and publication boundary
+
+The research uses nflverse play-by-play, participation data, and schedules
+accessed through nflreadr and cached by the project. Closing spreads and
+moneylines come from the cached schedules. The site's direct numerical inputs
+are the nine saved `36_*` and `38_*` parquet artifacts listed in the
+[provenance index](artifacts.qmd). This render does not fetch data or call a
+pipeline loader.
+
+The reviewed development and efficiency universe is NFL regular seasons
+2021–2025. Strategy evaluation is 2022–2025, and saved model test predictions
+cover 2024–2025. These are **season labels**, not exact calendar dates; the
+selected parquet summaries do not preserve an exact game-date range or a
+verified artifact-creation timestamp/SHA.
+
+## No-lookahead rules
+
+| Component | Timing rule and interpretation |
+|---|---|
+| Schematic win model (`R/36_win_probability_model.R`) | Trailing five-game team means followed by a one-game lag, reset each season. At least three prior games required; home-minus-away differences give one row per game. |
+| Model split A | Fit 2021–2022; Platt calibration 2023; report 2024–2025. |
+| Model split B | Fit 2021–2023; Platt calibration 2024; report 2025. |
+| XGBoost early stopping | Internal temporal slice of training data; calibration data reserved for Platt scaling. |
+| Power-index backtest (`R/38_market_backtest.R`) | Producer rebuilds the index with `lag_scores = TRUE`; mappings for season S use seasons strictly before S. The initial season is never bet. |
+| Closing line | Unaltered evaluation benchmark; also the price/line against which strategy disagreement is measured. Not evidence of an earlier tradable opportunity. |
+
+The stored descriptive power rankings are **not** safe same-game prediction
+features. Likewise, the season-level matchup explainer and Markdown exporter
+(`R/24_matchup_explainer.R`, `R/26_export_matchup_report.R`) provide structural
+comparisons, not validated probabilities of a particular game outcome. Their
+season aggregates can include information later than a named historical week.
+The published PHI–DAL walkthrough is therefore labelled as a retrospective
+engineering demonstration, not a pre-kickoff forecast. Its publication helper
+disables market context and records the exact processed checkpoints it reads.
+
+## Population and measurement choices
+
+- The win-model EPA baseline uses regular-season run/pass plays, excluding
+  penalties, kneels, and two-point attempts. Tied games are excluded from its
+  binary win model. Do not generalise that population to every project table:
+  broader descriptive metrics may include postseason plays.
+- The power index is a hand-weighted composite. Its tiers are constructed
+  editorial categories, not external labels learned from Bootleg Football.
+- Four-man pressure is a proxy, not charted disguise. Coverage disguise is
+  unavailable without external data. Personnel and pass-rusher counts depend
+  on the participation join; absence is not a zero.
+- In the closing-line convention, a positive spread denotes the home team's
+  expected margin. Residual error is actual home margin minus closing spread.
+- Efficiency regressions include the initial development season. They use
+  ordinary regression standard errors. Failure to reject is not proof of no
+  effect or universal market efficiency.
+- The spread backtest excludes pushes; the moneyline implementation treats a
+  tie as `home_won = 0`, not as an explicit sportsbook refund. This is a known
+  settlement limitation, not a claim about how a live book would grade it.
+- The reported spread ROI assumes −110 for every recorded bet. Moneyline ROI
+  uses offered prices and fractional sizing; neither is a live-execution study.
+- Thresholds overlap, seasons are few, and repeated experimentation can favour
+  apparently promising results. No multiple-testing correction or independent
+  prospective validation is claimed.
+- The Brier bootstrap pairs predictions by game, not by team/season block.
+  Dependence across games is not explicitly modelled. The two test windows
+  overlap. Neither interval establishes incremental schematic value.
+
+## Invalid research is not a null result
+
+Old historical opening lines were generated from closing lines plus random
+noise. The dependent opening-line movement / CLV studies (`R/17`–`R/19`) are
+invalid, not evidence of successful timing and not a valid null finding.
+`R/11_scrape_opening_lines.R` is now disabled. No synthetic-era performance
+figures, QB direction-match hit rates, watchlists, or derived advice are reused.
+
+This site is the **public-safe replacement**, not a republication of
+`outputs/notebooklm/*.md` or historic research documents. Those files remain
+unchanged and are not copied into the site output.
+
+## Reproducibility is bounded
+
+The renderer validates required artifacts and checks summary ROI against the
+saved bet ledger. It reconstructs charts and tables, not the upstream models.
+Render timestamp, checkout SHA, source paths, artifact hashes, and current
+publication-source hashes are recorded. A checkout SHA is **not** proof that it
+produced an existing artifact; missing historical lineage remains missing.
+
+[Read the closing-line study](posts/market-efficiency/index.qmd)

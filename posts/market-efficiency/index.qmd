@@ -147,3 +147,5 @@ cat("\n\n")
 cat(readLines("../../_generated/source-manifest.qmd"), sep = "\n")
 ```
 :::
+
+[Methodology and limitations](../../methodology.qmd) · [Artifact provenance](../../artifacts.qmd)
