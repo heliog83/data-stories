@@ -1,0 +1,14 @@
+<footer class="research-provenance" aria-label="Research scope and provenance">
+  <h2>Research scope &amp; provenance</h2>
+  <p class="scope-disclaimer"><strong>{{DISCLAIMER}}</strong></p>
+  <dl>
+    <dt>Data range</dt><dd>{{DATA_RANGE}}</dd>
+    <dt>Generated / render timestamp (UTC)</dt><dd><time>{{TIMESTAMP}}</time></dd>
+    <dt>Git SHA of the nfl_analytics source checkout</dt><dd><code>{{GIT_SHA}}</code></dd>
+    <dt>Source working tree at render</dt><dd>{{WORKTREE}}</dd>
+  </dl>
+  <p>The timestamp dates this publication build, not the underlying analysis.
+  The checkout SHA is not a verified artifact-creation SHA; that historical lineage
+  is unavailable in the saved parquet schema. See the artifact fingerprints on this page for per-file SHA-256 hashes.</p>
+  <details><summary>Source artifacts (repository-relative paths)</summary><ul>{{SOURCES}}</ul></details>
+</footer>

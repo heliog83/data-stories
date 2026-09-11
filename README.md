@@ -61,6 +61,31 @@ quarto preview --no-render
   `#quarto-document-content` (an **id**, not a class) — scoping to
   `.quarto-document-content` silently does nothing.
 
+## Market-efficiency post
+
+`posts/market-efficiency/` reads five generated fragments from `_generated/`.
+Those are produced by `scripts/generate_market_efficiency.R`, which reads nine
+saved parquet artifacts from the **private** `nfl_analytics` repo read-only and
+never rebuilds ratings or models:
+
+```bash
+Rscript scripts/generate_market_efficiency.R [path-to-nfl_analytics]
+# defaults to $NFL_ANALYTICS_ROOT, else ~/Documents/nfl_analytics
+```
+
+It writes `efficiency.png`, `efficiency.qmd`, `roi.png`, `strategies.qmd` and
+`incremental.qmd`, plus `provenance.html` (rendered from
+`_includes/provenance.html`) and the `manifest.qmd` / `source-manifest.qmd`
+fingerprint tables. `_generated/` is committed so the site builds from a fresh
+clone without the private data.
+
+The script carries an editorial gate: if the saved evidence stops matching the
+published finding (six losing strategies, four non-significant efficiency
+tests, two CIs crossing zero), it stops rather than printing new numbers under
+old prose.
+
+Needs: `arrow`, `ggplot2`, `knitr`, `digest`.
+
 ## Clustering validation
 
 `scripts/cluster_archetypes.R` answers "are the archetypes real groups?" with four

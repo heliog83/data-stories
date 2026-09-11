@@ -1,0 +1,6 @@
+|Test                                                |    n|Estimate | Null|Approx. 95% interval |p vs null |
+|:---------------------------------------------------|----:|:--------|----:|:--------------------|:---------|
+|Rating -> closing-line error (points / rating unit) | 1194|0.36937  |    0|[-0.36664, 1.10538]  |0.32501   |
+|Closing-spread slope (points / point)               | 1194|1.07214  |    1|[0.95670, 1.18758]   |0.22047   |
+|Closing-spread intercept (points)                   | 1194|0.52314  |    0|[-0.22079, 1.26707]  |0.16795   |
+|Rating -> ATS cover (log-odds / rating unit)        | 1166|0.02321  |    0|[-0.09386, 0.14028]  |0.69738   |

@@ -1,0 +1,8 @@
+|Strategy                      | Bets|Net ROI |
+|:-----------------------------|----:|:-------|
+|Spread &#124; edge >= 0.5 pts |  847|-6.24%  |
+|Spread &#124; edge >= 1 pts   |  759|-7.69%  |
+|Spread &#124; edge >= 1.5 pts |  671|-7.82%  |
+|Spread &#124; edge >= 2 pts   |  583|-6.67%  |
+|Spread &#124; edge >= 3 pts   |  428|-1.42%  |
+|Moneyline &#124; edge >= 2 pp |  820|-13.64% |
