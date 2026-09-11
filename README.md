@@ -63,8 +63,8 @@ quarto preview --no-render
 
 ## Market-efficiency post
 
-`posts/market-efficiency/` reads five generated fragments from `_generated/`.
-Those are produced by `scripts/generate_market_efficiency.R`, which reads nine
+`posts/market-efficiency/` reads seven generated fragments from `_generated/`.
+Those are produced by `scripts/generate_market_efficiency.R`, which reads ten
 saved parquet artifacts from the **private** `nfl_analytics` repo read-only and
 never rebuilds ratings or models:
 
@@ -73,11 +73,20 @@ Rscript scripts/generate_market_efficiency.R [path-to-nfl_analytics]
 # defaults to $NFL_ANALYTICS_ROOT, else ~/Documents/nfl_analytics
 ```
 
-It writes `efficiency.png`, `efficiency.qmd`, `roi.png`, `strategies.qmd` and
-`incremental.qmd`, plus `provenance.html` (rendered from
+It writes `power-index.png`, `power-index.qmd`, `efficiency.png`,
+`efficiency.qmd`, `roi.png`, `strategies.qmd` and `incremental.qmd`, plus
+`provenance.html` (rendered from
 `_includes/provenance.html`) and the `manifest.qmd` / `source-manifest.qmd`
 fingerprint tables. `_generated/` is committed so the site builds from a fresh
 clone without the private data.
+
+`power-index.png` is the index itself — all 32 teams for the most recent
+**completed** week of 2025, read from `37_bootleg_power_rankings.parquet` and
+grouped into its five tier bands. The week is taken from the artifact (the
+latest week in which every ranked team has a row), never from a calendar. The
+tier names are the taxonomy `R/37_bootleg_power_index.R` *imposes* on the
+composite score — never describe them on this site as observed or validated
+Bootleg Football ratings, which is a validation that has never run.
 
 The script carries an editorial gate: if the saved evidence stops matching the
 published finding (six losing strategies, four non-significant efficiency

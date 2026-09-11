@@ -12,11 +12,13 @@
 # The source repo is READ-ONLY here. This script never sources the pipeline,
 # never rebuilds ratings or models, and never writes outside blog/_generated/.
 #
-# Source of truth : <nfl_analytics>/data/04_models/*.parquet
-#                   <nfl_analytics>/data/05_backtests/*.parquet   (9 files)
-# Delivery payload: blog/_generated/{efficiency.png, efficiency.qmd, roi.png,
-#                   strategies.qmd, incremental.qmd} plus provenance.html and
-#                   manifest.qmd (data range, UTC stamp, Git SHA, SHA-256s)
+# Source of truth : <nfl_analytics>/data/03_features/37_bootleg_power_rankings.parquet
+#                   <nfl_analytics>/data/04_models/*.parquet
+#                   <nfl_analytics>/data/05_backtests/*.parquet   (10 files)
+# Delivery payload: blog/_generated/{power-index.png, power-index.qmd,
+#                   efficiency.png, efficiency.qmd, roi.png, strategies.qmd,
+#                   incremental.qmd} plus provenance.html and manifest.qmd
+#                   (data range, UTC stamp, Git SHA, SHA-256s)
 #
 # Ported from nfl_analytics/site/scripts/render-artifacts.R. The validation
 # gate, the interval arithmetic and the chart specs are deliberately identical.
@@ -24,6 +26,7 @@
 # ═══════════════════════════════════════════════════════════════════════════
 
 artifact_paths <- c(
+  "37_bootleg_power_rankings" = "data/03_features/37_bootleg_power_rankings.parquet",
   "36_model_metrics" = "data/04_models/36_model_metrics.parquet",
   "36_predictions" = "data/04_models/36_predictions.parquet",
   "36_feature_importance" = "data/04_models/36_feature_importance.parquet",
@@ -49,6 +52,9 @@ read_public_artifacts <- function(root) {
 
 validate_public_artifacts <- function(x) {
   required <- list(
+    "37_bootleg_power_rankings" = c("season", "week", "team", "games_played",
+                                   "bootleg_power_score", "power_rank", "tier",
+                                   "tier_label", "is_flawed_contender"),
     "36_model_metrics" = c("model", "experiment", "n", "brier"),
     "36_predictions" = c("game_id", "season", "experiment", "pred_calibrated"),
     "36_feature_importance" = c("experiment", "feature", "importance"),
@@ -112,6 +118,47 @@ efficiency_intervals <- function(headline) {
   e
 }
 
+# ── Power index ────────────────────────────────────────────────────────────
+# The descriptive composite the article is about. It is read, never rebuilt:
+# the tiers below are the quintile taxonomy R/37 IMPOSES on the composite, not
+# observed or validated external ratings (see that script's Honesty Note 1).
+POWER_INDEX_SEASON <- 2025L
+
+#' Latest week of `season` in which every ranked team has a row: the most
+#' recent COMPLETED week, taken from the artifact rather than from a calendar.
+power_index_latest_week <- function(pr, season = POWER_INDEX_SEASON) {
+  d <- pr[pr$season == season, ]
+  if (!nrow(d)) stop("Power index has no rows for season ", season)
+  per_week <- table(d$week)
+  full <- as.integer(names(per_week)[per_week == max(per_week)])
+  max(full)
+}
+
+#' The 32-team snapshot for that week, ordered best to worst, with structural
+#' checks that would catch a changed grain, tier scheme or ranking convention.
+power_index_snapshot <- function(pr, season = POWER_INDEX_SEASON) {
+  week <- power_index_latest_week(pr, season)
+  d <- pr[pr$season == season & pr$week == week, ]
+  d <- d[order(d$power_rank), ]
+  stopifnot("Power index snapshot changed: review chart and copy" =
+              nrow(d) == 32L && !anyDuplicated(d$team) &&
+              identical(d$power_rank, 1:32) &&
+              all(is.finite(d$bootleg_power_score)) &&
+              !is.unsorted(rev(d$bootleg_power_score)) &&
+              setequal(unique(d$tier), c("S", "A", "B", "C", "D")) &&
+              all(tapply(d$tier_label, d$tier, function(v) length(unique(v))) == 1L))
+  d$tier <- factor(d$tier, levels = c("S", "A", "B", "C", "D"))
+  d <- d[order(d$tier, d$power_rank), ]
+  d$week <- week
+  d
+}
+
+#' Wrap the artifact's own tier label so it fits a facet strip unedited.
+wrap_tier_label <- function(x, width = 26) {
+  vapply(x, function(s) paste(strwrap(s, width = width), collapse = "\n"),
+         character(1), USE.NAMES = FALSE)
+}
+
 render_market_efficiency <- function(source_root, blog_dir) {
   x <- read_public_artifacts(source_root)
   out <- file.path(blog_dir, "_generated")
@@ -147,6 +194,70 @@ render_market_efficiency <- function(source_root, blog_dir) {
                    plot.caption = ggplot2::element_text(size = 8, hjust = 0),
                    panel.grid.minor = ggplot2::element_blank(),
                    plot.margin = ggplot2::margin(16, 20, 16, 16))
+
+  # ── Power index: the ranking itself, before any statistical test ──────────
+  pi <- power_index_snapshot(x[["37_bootleg_power_rankings"]])
+  pi_week <- pi$week[1]
+  pi_range <- sprintf("Data range: %d regular season, through week %d (composite is a rolling window inclusive of that week)",
+                      POWER_INDEX_SEASON, pi_week)
+  pi$strip <- factor(wrap_tier_label(pi$tier_label),
+                     levels = wrap_tier_label(unique(pi$tier_label)))
+  pi$row_label <- sprintf("%2d. %s", pi$power_rank, pi$team)
+  pi$row_label <- factor(pi$row_label, levels = rev(pi$row_label))
+  tier_fill <- c("S" = "#175c72", "A" = "#3f8ea5", "B" = "#7d8892",
+                 "C" = "#c07a4e", "D" = "#a73c36")
+  pi_pad <- diff(range(pi$bootleg_power_score)) * 0.18
+  power <- ggplot2::ggplot(pi, ggplot2::aes(x = bootleg_power_score, y = row_label,
+                                            fill = tier)) +
+    ggplot2::geom_vline(xintercept = 0, colour = "#455667") +
+    ggplot2::geom_col(width = 0.68) +
+    ggplot2::geom_text(ggplot2::aes(label = sprintf("%+.2f", bootleg_power_score),
+                                    hjust = ifelse(bootleg_power_score >= 0, -0.15, 1.15)),
+                       size = 2.9, colour = "#22303c") +
+    ggplot2::scale_fill_manual(values = tier_fill, guide = "none") +
+    ggplot2::scale_x_continuous(
+      limits = c(min(pi$bootleg_power_score) - pi_pad, max(pi$bootleg_power_score) + pi_pad)) +
+    ggplot2::facet_grid(rows = ggplot2::vars(strip), scales = "free_y", space = "free_y",
+                        switch = "y") +
+    ggplot2::labs(
+      title = sprintf("The power index itself: all 32 teams, %d through week %d",
+                      POWER_INDEX_SEASON, pi_week),
+      subtitle = paste("Score is standard deviations above or below that week's league average.",
+                       "Tier bands are the five equal slices of the league this project imposes on the score -",
+                       "its own labels, not observed or validated external ratings.", sep = "\n"),
+      x = "Power index score (standard deviations from the league average)", y = NULL,
+      caption = caption(artifact_paths["37_bootleg_power_rankings"], pi_range)) +
+    theme +
+    ggplot2::theme(strip.placement = "outside",
+                   strip.text.y.left = ggplot2::element_text(angle = 0, hjust = 0, size = 8.5,
+                                                             face = "bold", colour = "#22303c"),
+                   panel.grid.major.y = ggplot2::element_blank(),
+                   panel.spacing.y = ggplot2::unit(6, "pt"),
+                   axis.text.y = ggplot2::element_text(size = 8.5, family = "mono"))
+  ggplot2::ggsave(file.path(out, "power-index.png"), power, width = 11, height = 10,
+                  dpi = 150, bg = "white")
+
+  # Layer-1 reading aid: one row per tier band, every figure taken from the
+  # snapshot above so the prose never hand-types a rank, a count or a score.
+  pi_tiers <- do.call(rbind, lapply(levels(pi$tier), function(t) {
+    g <- pi[pi$tier == t, ]
+    data.frame(
+      `Tier band` = as.character(g$tier_label[1]),
+      `Teams` = nrow(g),
+      `Ranks` = sprintf("%d-%d", min(g$power_rank), max(g$power_rank)),
+      `Score range` = sprintf("%+.2f to %+.2f", max(g$bootleg_power_score),
+                              min(g$bootleg_power_score)),
+      `Who is in it` = paste(g$team, collapse = ", "),
+      check.names = FALSE)
+  }))
+  writeLines(c(
+    sprintf(paste("The table below reads the same snapshot as the chart: the %d regular season",
+                  "through week %d, %d teams, split into five equal bands by score."),
+            POWER_INDEX_SEASON, pi_week, nrow(pi)),
+    "",
+    as.character(knitr::kable(pi_tiers, format = "pipe", row.names = FALSE))),
+    file.path(out, "power-index.qmd"))
+
   roi <- ggplot2::ggplot(s, ggplot2::aes(x = roi * 100,
                                        y = factor(label, levels = rev(label)))) +
     ggplot2::geom_vline(xintercept = 0, colour = "#455667") +
@@ -220,8 +331,8 @@ render_market_efficiency <- function(source_root, blog_dir) {
     "These identify the current publication sources, including uncommitted edits.", "",
     as.character(knitr::kable(source_manifest, format = "pipe", row.names = FALSE))),
     file.path(out, "source-manifest.qmd"))
-  message("Market-efficiency artifacts: read 9 parquet files from ", source_root,
-          "; wrote 2 charts, 3 tables, provenance and manifests under ", out, ".")
+  message("Market-efficiency artifacts: read 10 parquet files from ", source_root,
+          "; wrote 3 charts, 4 tables, provenance and manifests under ", out, ".")
   message("Generated: ", stamp, " | Source repo Git SHA: ", sha,
           " | source worktree ", if (dirty) "dirty" else "clean")
   invisible(out)

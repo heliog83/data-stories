@@ -5,5 +5,5 @@ These identify the current publication sources, including uncommitted edits.
 |Path                                 |SHA256                                                           |
 |:------------------------------------|:----------------------------------------------------------------|
 |_includes/provenance.html            |3e258b4767fcce774770f800b3e33e2101c6198e7ea9574635d9c91a1b25b473 |
-|posts/market-efficiency/index.qmd    |7d6a169e60e394ccef0e3e8780654912dd2cabc1933fe019c4272fcf004ace11 |
-|scripts/generate_market_efficiency.R |7868b5e28e0161d7081fafbad9a5fa8b3505170738f4d329ec6671952cae8a9c |
+|posts/market-efficiency/index.qmd    |04690ff48c357b314e7bf33e499d64c56dce093e9ce786e1951d191fa88f954e |
+|scripts/generate_market_efficiency.R |6b7894daae507b962c31b6e858505d2bb087f60517389b243afc5ceb35330aa7 |

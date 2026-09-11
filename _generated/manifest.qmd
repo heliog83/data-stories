@@ -1,21 +1,22 @@
 ### Artifact fingerprints
 
-Generated: 2026-09-11T06:16:42Z
+Generated: 2026-09-11T16:44:24Z
 
-Source repo Git SHA: ac4d3d5010df661cfc226dc7152d7a002b689458
+Source repo Git SHA: 3660217976d2cf2758b3ccb85b7952347f819e78
 
 Data range: NFL regular seasons 2021-2025 (efficiency universe / model development); strategy evaluation 2022-2025; saved model tests 2024-2025.
 
 Research only - no picks, no staking advice, no established market edge.
 
-|Source artifact path                            | Rows|SHA256                                                           |
-|:-----------------------------------------------|----:|:----------------------------------------------------------------|
-|data/04_models/36_model_metrics.parquet         |    8|d83f928f256b6e4685431a4f61720f7eae9d20c44f5a4e67cc0874be7364898f |
-|data/04_models/36_predictions.parquet           | 1340|1a703913e33ef86c3f1dcc3127c413aa008b716aca0e7680aac052ba9ec6d1c6 |
-|data/04_models/36_feature_importance.parquet    |   20|129a59f1e77da7135eab2d75c817690e30de7835fed3cc9e3996062c2d42ec91 |
-|data/04_models/36_calibration.parquet           |   21|4ecea4374cec372a1dcbeea0170e0ecea299884b9de1f1361369c95bf76e3b59 |
-|data/04_models/36_incremental_value.parquet     |    2|043988f307faee722987bba0546899fa34b4dcaeea18a0e28162cc40838f1c48 |
-|data/05_backtests/38_market_efficiency.parquet  |   10|134bb6585d6ccf94eb2582a3b656ed0d0ee0b51c5ca64cae7247ec136caad83c |
-|data/05_backtests/38_strategy_summary.parquet   |    6|ebc9407bb641e9e641eb5a64d84ffdd0e412066ff2dac2958e3902c21ed77995 |
-|data/05_backtests/38_strategy_by_season.parquet |   24|cf0bfaa03c56db640d48b6b8c5b9ee13ec70ce4d809b6966ec771148050a284e |
-|data/05_backtests/38_bets.parquet               | 4108|7dce083ec8d69fe3e91f3a93e7d55a31b3fb70e1b20fe48fefa6412b467f46df |
+|Source artifact path                               | Rows|SHA256                                                           |
+|:--------------------------------------------------|----:|:----------------------------------------------------------------|
+|data/03_features/37_bootleg_power_rankings.parquet | 2390|16023d77bb812bda0af381b9358139581374361590da8bdf43ab2b203fb0e859 |
+|data/04_models/36_model_metrics.parquet            |    8|d83f928f256b6e4685431a4f61720f7eae9d20c44f5a4e67cc0874be7364898f |
+|data/04_models/36_predictions.parquet              | 1340|1a703913e33ef86c3f1dcc3127c413aa008b716aca0e7680aac052ba9ec6d1c6 |
+|data/04_models/36_feature_importance.parquet       |   20|129a59f1e77da7135eab2d75c817690e30de7835fed3cc9e3996062c2d42ec91 |
+|data/04_models/36_calibration.parquet              |   21|4ecea4374cec372a1dcbeea0170e0ecea299884b9de1f1361369c95bf76e3b59 |
+|data/04_models/36_incremental_value.parquet        |    2|043988f307faee722987bba0546899fa34b4dcaeea18a0e28162cc40838f1c48 |
+|data/05_backtests/38_market_efficiency.parquet     |   10|134bb6585d6ccf94eb2582a3b656ed0d0ee0b51c5ca64cae7247ec136caad83c |
+|data/05_backtests/38_strategy_summary.parquet      |    6|ebc9407bb641e9e641eb5a64d84ffdd0e412066ff2dac2958e3902c21ed77995 |
+|data/05_backtests/38_strategy_by_season.parquet    |   24|cf0bfaa03c56db640d48b6b8c5b9ee13ec70ce4d809b6966ec771148050a284e |
+|data/05_backtests/38_bets.parquet                  | 4108|7dce083ec8d69fe3e91f3a93e7d55a31b3fb70e1b20fe48fefa6412b467f46df |

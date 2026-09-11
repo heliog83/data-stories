@@ -1,0 +1,9 @@
+The table below reads the same snapshot as the chart: the 2025 regular season through week 18, 32 teams, split into five equal bands by score.
+
+|Tier band                                                      | Teams|Ranks |Score range    |Who is in it                     |
+|:--------------------------------------------------------------|-----:|:-----|:--------------|:--------------------------------|
+|S-Tier: Contenders / Elite Identity                            |     6|1-6   |+1.44 to +0.81 |LA, BUF, NE, CIN, JAX, MIN       |
+|A-Tier: Dark Horse / Heavy Schemes                             |     6|7-12  |+0.64 to +0.46 |BAL, DEN, NO, PHI, SEA, CHI      |
+|B-Tier: Flawed Contenders (High EPA, Low Schematic Discipline) |     6|13-18 |+0.18 to -0.25 |PIT, SF, NYG, HOU, ATL, LAC      |
+|C-Tier: Inconsistent / Rebuilding                              |     7|19-25 |-0.26 to -0.47 |CAR, DET, TEN, GB, DAL, WAS, MIA |
+|D-Tier: Fraudulent / High Variance                             |     7|26-32 |-0.56 to -2.04 |KC, LV, TB, ARI, IND, CLE, NYJ   |
