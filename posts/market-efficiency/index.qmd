@@ -1,5 +1,5 @@
 ---
-title: "We Built an NFL Power Index. The Closing Line Still Beat It."
+title: "I Built an NFL Power Index. The Closing Line Still Beat It."
 subtitle: "No significant residual signal, and every tested strategy lost net of vig"
 description: "No significant residual signal, and losses across every tested aggregate strategy. An NFL analytics case study in respecting the benchmark."
 date: 2026-09-11
@@ -14,7 +14,7 @@ format:
 ::: {.callout-important}
 ## The finding
 The real closing-line backtest detects **no significant residual signal** from
-our power index. **All six tested strategies lost in aggregate net of vig** over
+my power index. **All six tested strategies lost in aggregate net of vig** over
 the saved strategy-evaluation seasons. These results do not support staking money.
 :::
 

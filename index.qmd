@@ -12,7 +12,7 @@ title-block-banner: false
 ---
 
 ::: {.lead}
-Rigorous analysis meets clean data visualization. NFL analytics, personal data experiments, and stories from Mexico — each post is one clear question, answered with data and a strong chart.
+NFL analytics, personal data experiments, and stories from Mexico.
 :::
 
 ## Latest Posts

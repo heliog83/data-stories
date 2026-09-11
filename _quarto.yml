@@ -1,10 +1,14 @@
 project:
   type: website
   output-dir: _site
+  render:
+    - "*.qmd"
+    - "posts/**/*.qmd"
+    - "teams/*.qmd"
 
 website:
   title: "Helio's Data Stories"
-  description: "Rigorous analysis meets clean data visualization — NFL analytics, personal data, and stories from Mexico."
+  description: "NFL analytics, personal data, and stories from Mexico."
   navbar:
     background: "#1a1a2e"
     foreground: "#e8e8e8"
