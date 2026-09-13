@@ -644,88 +644,39 @@
     "text": "The Takeaway\n“Running the ball” is not a strategy — it is an endgame tool available to teams that have already won the passing war.\nWhen evaluating matchups, don’t ask who has the bigger running back. Look at their quadrant on the EPA map. The data will tell you what the team actually is, regardless of what their head coach says in Tuesday’s press conference.\n\n\n\n\n\n\n\nExplore All 32 Teams\n\n\n\nEvery franchise’s dossier — four-phase EPA bars on one shared scale, quarterback rolling form, lead-back creation metrics, and the 2026 projection — is generated straight from the pipeline in All 32 Teams. Nothing on those pages is typed by hand."
   },
   {
-    "objectID": "methodology.html",
-    "href": "methodology.html",
-    "title": "Methodology & limitations",
+    "objectID": "posts/eu-gas-storage/index.html",
+    "href": "posts/eu-gas-storage/index.html",
+    "title": "Europe’s Refill Season Is the Weakest in 15 Years",
     "section": "",
-    "text": "The research uses nflverse play-by-play, participation data, and schedules accessed through nflreadr and cached by the project. Closing spreads and moneylines come from the cached schedules. The site’s direct numerical inputs are the nine saved 36_* and 38_* parquet artifacts listed in the provenance index. This render does not fetch data or call a pipeline loader.\nThe reviewed development and efficiency universe is NFL regular seasons 2021–2025. Strategy evaluation is 2022–2025, and saved model test predictions cover 2024–2025. These are season labels, not exact calendar dates; the selected parquet summaries do not preserve an exact game-date range or a verified artifact-creation timestamp/SHA."
+    "text": "Under EU regulations, member states must reach 90% storage ahead of winter. Heading into autumn, inventories are trailing the entire 15-year historical record.\nEurope’s plan for winter energy security relies on filling underground salt caverns and depleted gas fields during the mild summer months. Under the EU Gas Storage Regulation—originally enacted as Regulation (EU) 2022/1032 and extended through 2027 by Regulation (EU) 2025/1733 amending Regulation (EU) 2017/1938—member states face a binding legal obligation to reach 90% storage capacity ahead of winter. For 2026, the updated framework sets the target window between 1 October and 1 December.\nThis summer, the refill has lagged. Across the entire 15-year daily record published by Gas Infrastructure Europe (GIE AGSI+), European storage facilities have never entered mid-September with storage levels this low."
   },
   {
-    "objectID": "methodology.html#sources-and-publication-boundary",
-    "href": "methodology.html#sources-and-publication-boundary",
-    "title": "Methodology & limitations",
+    "objectID": "posts/eu-gas-storage/index.html#why-2026-is-lagging",
+    "href": "posts/eu-gas-storage/index.html#why-2026-is-lagging",
+    "title": "Europe’s Refill Season Is the Weakest in 15 Years",
+    "section": "Why 2026 is lagging",
+    "text": "Why 2026 is lagging\nThe daily AGSI+ data shows that 2026’s deficit is inherited from its spring starting point, rather than a failure of summer injections:\n\nA deeper spring trough: European inventories bottomed at a seasonal low of 27.6% on March 31—27.8 points below 2023’s 55.4% and 30.9 points below 2024’s 58.5%.\nA normal refill pace that could not bridge the opening gap: Between the March 31 trough and September 11, European storage gained 40.2 percentage points. That injection gain matches historical summer refill paces (+38.2 points over the same period in 2023, +34.7 in 2024, +38.6 in 2020, and +41.1 in 2021). Because the refill ran at normal rather than emergency injection rates (unlike the extraordinary +58.4-point push in 2022), the ~28-point deficit inherited from the spring remained intact heading into autumn.\n\nStorage is still rising—inventories climbed from 54.0% on July 19 to 67.8% in mid-September—but the refill window closes as the withdrawal season begins."
+  },
+  {
+    "objectID": "posts/eu-gas-storage/index.html#data-provenance",
+    "href": "posts/eu-gas-storage/index.html#data-provenance",
+    "title": "Europe’s Refill Season Is the Weakest in 15 Years",
+    "section": "Data & Provenance",
+    "text": "Data & Provenance\nThe chart uses official, daily aggregate data from Gas Infrastructure Europe (GIE AGSI+):\n\nSeries: Aggregated Gas Storage Inventory (EU Total, type=EU).\nSpan: 5,733 daily records, January 1, 2011 through September 11, 2026.\nFetch date: September 12, 2026.\nLicence & attribution: Mandatory attribution: Source: GIE AGSI+.\n\nMany media visualisations rely on commercial feeds (such as S&P Global Platts). AGSI+ publishes the same underlying operational reports directly from European storage facility operators, free and open to the public."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Helio’s Data Stories",
     "section": "",
-    "text": "The research uses nflverse play-by-play, participation data, and schedules accessed through nflreadr and cached by the project. Closing spreads and moneylines come from the cached schedules. The site’s direct numerical inputs are the nine saved 36_* and 38_* parquet artifacts listed in the provenance index. This render does not fetch data or call a pipeline loader.\nThe reviewed development and efficiency universe is NFL regular seasons 2021–2025. Strategy evaluation is 2022–2025, and saved model test predictions cover 2024–2025. These are season labels, not exact calendar dates; the selected parquet summaries do not preserve an exact game-date range or a verified artifact-creation timestamp/SHA."
+    "text": "NFL analytics, personal data experiments, and stories from Mexico."
   },
   {
-    "objectID": "methodology.html#no-lookahead-rules",
-    "href": "methodology.html#no-lookahead-rules",
-    "title": "Methodology & limitations",
-    "section": "No-lookahead rules",
-    "text": "No-lookahead rules\n\n\n\n\n\n\n\nComponent\nTiming rule and interpretation\n\n\n\n\nSchematic win model (R/36_win_probability_model.R)\nTrailing five-game team means followed by a one-game lag, reset each season. At least three prior games required; home-minus-away differences give one row per game.\n\n\nModel split A\nFit 2021–2022; Platt calibration 2023; report 2024–2025.\n\n\nModel split B\nFit 2021–2023; Platt calibration 2024; report 2025.\n\n\nXGBoost early stopping\nInternal temporal slice of training data; calibration data reserved for Platt scaling.\n\n\nPower-index backtest (R/38_market_backtest.R)\nProducer rebuilds the index with lag_scores = TRUE; mappings for season S use seasons strictly before S. The initial season is never bet.\n\n\nClosing line\nUnaltered evaluation benchmark; also the price/line against which strategy disagreement is measured. Not evidence of an earlier tradable opportunity.\n\n\n\nThe stored descriptive power rankings are not safe same-game prediction features. Likewise, the season-level matchup explainer and Markdown exporter (R/24_matchup_explainer.R, R/26_export_matchup_report.R) provide structural comparisons, not validated probabilities of a particular game outcome. Their season aggregates can include information later than a named historical week. The published PHI–DAL walkthrough is therefore labelled as a retrospective engineering demonstration, not a pre-kickoff forecast. Its publication helper disables market context and records the exact processed checkpoints it reads."
-  },
-  {
-    "objectID": "methodology.html#population-and-measurement-choices",
-    "href": "methodology.html#population-and-measurement-choices",
-    "title": "Methodology & limitations",
-    "section": "Population and measurement choices",
-    "text": "Population and measurement choices\n\nThe win-model EPA baseline uses regular-season run/pass plays, excluding penalties, kneels, and two-point attempts. Tied games are excluded from its binary win model. Do not generalise that population to every project table: broader descriptive metrics may include postseason plays.\nThe power index is a hand-weighted composite. Its tiers are constructed editorial categories, not external labels learned from Bootleg Football.\nFour-man pressure is a proxy, not charted disguise. Coverage disguise is unavailable without external data. Personnel and pass-rusher counts depend on the participation join; absence is not a zero.\nIn the closing-line convention, a positive spread denotes the home team’s expected margin. Residual error is actual home margin minus closing spread.\nEfficiency regressions include the initial development season. They use ordinary regression standard errors. Failure to reject is not proof of no effect or universal market efficiency.\nThe spread backtest excludes pushes; the moneyline implementation treats a tie as home_won = 0, not as an explicit sportsbook refund. This is a known settlement limitation, not a claim about how a live book would grade it.\nThe reported spread ROI assumes −110 for every recorded bet. Moneyline ROI uses offered prices and fractional sizing; neither is a live-execution study.\nThresholds overlap, seasons are few, and repeated experimentation can favour apparently promising results. No multiple-testing correction or independent prospective validation is claimed.\nThe Brier bootstrap pairs predictions by game, not by team/season block. Dependence across games is not explicitly modelled. The two test windows overlap. Neither interval establishes incremental schematic value."
-  },
-  {
-    "objectID": "methodology.html#invalid-research-is-not-a-null-result",
-    "href": "methodology.html#invalid-research-is-not-a-null-result",
-    "title": "Methodology & limitations",
-    "section": "Invalid research is not a null result",
-    "text": "Invalid research is not a null result\nOld historical opening lines were generated from closing lines plus random noise. The dependent opening-line movement / CLV studies (R/17–R/19) are invalid, not evidence of successful timing and not a valid null finding. R/11_scrape_opening_lines.R is now disabled. No synthetic-era performance figures, QB direction-match hit rates, watchlists, or derived advice are reused.\nThis site is the public-safe replacement, not a republication of outputs/notebooklm/*.md or historic research documents. Those files remain unchanged and are not copied into the site output."
-  },
-  {
-    "objectID": "methodology.html#reproducibility-is-bounded",
-    "href": "methodology.html#reproducibility-is-bounded",
-    "title": "Methodology & limitations",
-    "section": "Reproducibility is bounded",
-    "text": "Reproducibility is bounded\nThe renderer validates required artifacts and checks summary ROI against the saved bet ledger. It reconstructs charts and tables, not the upstream models. Render timestamp, checkout SHA, source paths, artifact hashes, and current publication-source hashes are recorded. A checkout SHA is not proof that it produced an existing artifact; missing historical lineage remains missing.\nRead the closing-line study"
-  },
-  {
-    "objectID": "artifacts.html",
-    "href": "artifacts.html",
-    "title": "Artifacts & reproducibility",
-    "section": "",
-    "text": "site/scripts/render-artifacts.R reads the existing nine parquet files below and creates two charts, article tables, and the shared provenance footer under site/_generated/. site/scripts/render-matchup.R separately reads the processed football checkpoints returned by explain_matchup() and creates one retrospective case-study chart, tables, narrative, and a page-specific manifest. Quarto renders only the five named pages into site/_site/. No pipeline/model source is executed, and nothing is written into data/, outputs/, or draft state.\nPublic-safe replacement: the historical NotebookLM corpus, CLV summaries, and matchup exports are deliberately excluded. Deploy only site/_site/, never the repository root or the historic outputs directory."
-  },
-  {
-    "objectID": "artifacts.html#what-gets-reproduced",
-    "href": "artifacts.html#what-gets-reproduced",
-    "title": "Artifacts & reproducibility",
-    "section": "",
-    "text": "site/scripts/render-artifacts.R reads the existing nine parquet files below and creates two charts, article tables, and the shared provenance footer under site/_generated/. site/scripts/render-matchup.R separately reads the processed football checkpoints returned by explain_matchup() and creates one retrospective case-study chart, tables, narrative, and a page-specific manifest. Quarto renders only the five named pages into site/_site/. No pipeline/model source is executed, and nothing is written into data/, outputs/, or draft state.\nPublic-safe replacement: the historical NotebookLM corpus, CLV summaries, and matchup exports are deliberately excluded. Deploy only site/_site/, never the repository root or the historic outputs directory."
-  },
-  {
-    "objectID": "artifacts.html#evidence-map",
-    "href": "artifacts.html#evidence-map",
-    "title": "Artifacts & reproducibility",
-    "section": "Evidence map",
-    "text": "Evidence map\n\n\n\n\n\n\n\nArtifact\nRole\n\n\n\n\ndata/05_backtests/38_market_efficiency.parquet\nFour efficiency-test estimates/SEs/nulls; also contains strategy-summary rows, excluded from the coefficient chart.\n\n\ndata/05_backtests/38_strategy_summary.parquet\nAggregate ROI and count for all six strategies.\n\n\ndata/05_backtests/38_strategy_by_season.parquet\nSeason coverage and context: aggregate losses do not mean every season lost.\n\n\ndata/05_backtests/38_bets.parquet\nStrategy threshold units, evaluation seasons, and independent recomputation of summary ROI. Rows repeat games across strategies.\n\n\ndata/04_models/36_incremental_value.parquet\nPaired-bootstrap Brier deltas and intervals.\n\n\ndata/04_models/36_model_metrics.parquet\nRaw and Platt-calibrated performance; a separate experiment from the power-index backtest.\n\n\ndata/04_models/36_predictions.parquet\nTest-season coverage and game-level predictions, repeated across model blocks and overlapping splits.\n\n\ndata/04_models/36_calibration.parquet\nSaved calibration-bin context; not a standalone proof of calibration.\n\n\ndata/04_models/36_feature_importance.parquet\nFeature-gain context, not causal or incremental-value evidence.\n\n\n\nPaths are repository-relative identifiers, not download links. Raw artifacts are intentionally not bundled. A fresh clone needs the reviewed saved artifacts supplied separately; this render fails if they are missing. No fallback uses fabricated, stale-text, or demo data."
-  },
-  {
-    "objectID": "artifacts.html#historical-matchup-snapshot",
-    "href": "artifacts.html#historical-matchup-snapshot",
-    "title": "Artifacts & reproducibility",
-    "section": "Historical matchup snapshot",
-    "text": "Historical matchup snapshot\nThe matchup walkthrough calls explain_matchup(\"PHI\", \"DAL\", 2024, week = 10) against the existing processed checkpoints. It supplies an empty temporary outputs_dir, so no market or opening-line field can enter the public snapshot. The generated page-specific manifest fingerprints every processed RDS checkpoint and the source/helper code used. Its mixed time boundary—full-season team metrics plus Week 10 quarterback and injury context—is stated in the page, chart caption, and manifest."
-  },
-  {
-    "objectID": "artifacts.html#local-commands",
-    "href": "artifacts.html#local-commands",
-    "title": "Artifacts & reproducibility",
-    "section": "Local commands",
-    "text": "Local commands\nFrom the repository root, with Quarto, R, and arrow, ggplot2, knitr, and digest available:\nRscript site/scripts/check-helper.R\nquarto render site\npython3 site/scripts/check-site.py\ngit diff --check\nquarto preview site --no-browser\nThe full render automatically invokes the artifact-only helper. renv.lock is an upstream environment manifest, not an activated project library. No package installation, artifact regeneration, or lockfile changes occur during rendering."
-  },
-  {
-    "objectID": "artifacts.html#how-to-read-the-provenance",
-    "href": "artifacts.html#how-to-read-the-provenance",
-    "title": "Artifacts & reproducibility",
-    "section": "How to read the provenance",
-    "text": "How to read the provenance\nThe shared footer records this publication’s UTC generation time, current Git HEAD, working-tree status, source artifacts, and separate data ranges. It does not claim the saved model files were created by that commit or at render time. The efficiency summary has no season column: its 2021–2025 range is the reviewed scope documented in AGENTS.md and the producer, not something inferred from the shorter bet ledger. Artifact hashes identify the exact bytes read. Publication-source hashes distinguish uncommitted site edits from HEAD.\nA fail-closed editorial guard stops rendering if the saved evidence no longer supports this article’s negative-strategy / unresolved-schematic conclusions. This guards the publication, not the research pipeline: new evidence must prompt an editorial review rather than a model change to force old conclusions.\n\nArtifact fingerprints\nGenerated: 2026-09-11T06:16:42Z\nSource repo Git SHA: ac4d3d5010df661cfc226dc7152d7a002b689458\nData range: NFL regular seasons 2021-2025 (efficiency universe / model development); strategy evaluation 2022-2025; saved model tests 2024-2025.\nResearch only - no picks, no staking advice, no established market edge.\n\n\n\n\n\n\n\n\nSource artifact path\nRows\nSHA256\n\n\n\n\ndata/04_models/36_model_metrics.parquet\n8\nd83f928f256b6e4685431a4f61720f7eae9d20c44f5a4e67cc0874be7364898f\n\n\ndata/04_models/36_predictions.parquet\n1340\n1a703913e33ef86c3f1dcc3127c413aa008b716aca0e7680aac052ba9ec6d1c6\n\n\ndata/04_models/36_feature_importance.parquet\n20\n129a59f1e77da7135eab2d75c817690e30de7835fed3cc9e3996062c2d42ec91\n\n\ndata/04_models/36_calibration.parquet\n21\n4ecea4374cec372a1dcbeea0170e0ecea299884b9de1f1361369c95bf76e3b59\n\n\ndata/04_models/36_incremental_value.parquet\n2\n043988f307faee722987bba0546899fa34b4dcaeea18a0e28162cc40838f1c48\n\n\ndata/05_backtests/38_market_efficiency.parquet\n10\n134bb6585d6ccf94eb2582a3b656ed0d0ee0b51c5ca64cae7247ec136caad83c\n\n\ndata/05_backtests/38_strategy_summary.parquet\n6\nebc9407bb641e9e641eb5a64d84ffdd0e412066ff2dac2958e3902c21ed77995\n\n\ndata/05_backtests/38_strategy_by_season.parquet\n24\ncf0bfaa03c56db640d48b6b8c5b9ee13ec70ce4d809b6966ec771148050a284e\n\n\ndata/05_backtests/38_bets.parquet\n4108\n7dce083ec8d69fe3e91f3a93e7d55a31b3fb70e1b20fe48fefa6412b467f46df\n\n\n\n\n\nPublication-source fingerprints\nThese identify the current publication sources, including uncommitted edits.\n\n\n\n\n\n\n\nPath\nSHA256\n\n\n\n\n_includes/provenance.html\n3e258b4767fcce774770f800b3e33e2101c6198e7ea9574635d9c91a1b25b473\n\n\nposts/market-efficiency/index.qmd\n7d6a169e60e394ccef0e3e8780654912dd2cabc1933fe019c4272fcf004ace11\n\n\nscripts/generate_market_efficiency.R\n7868b5e28e0161d7081fafbad9a5fa8b3505170738f4d329ec6671952cae8a9c\n\n\n\nMethodology and limitations · Project overview"
+    "objectID": "index.html#latest-posts",
+    "href": "index.html#latest-posts",
+    "title": "Helio’s Data Stories",
+    "section": "Latest Posts",
+    "text": "Latest Posts\n\n\n\n\n\nEurope’s Refill Season Is the Weakest in 15 Years\n\n\nHeading into autumn at 68% full, European storage sites are trailing every refill season since 2011.\n\n\n\nenergy\n\n\neurope\n\n\ncommodities\n\n\ndata-viz\n\n\n\nEurope enters autumn with underground gas storage at 67.8% full — trailing every refill season of the past 15 years. Visualising daily GIE AGSI+ data from 2011 to September 2026.\n\n\n\n\n\nSep 13, 2026\n\n\n\n\n\n\n\nI Built an NFL Power Index. The Closing Line Still Beat It.\n\n\nSix strategies, six losses — and nothing the closing line had missed.\n\n\n\nnfl\n\n\nmethodology\n\n\nbetting-markets\n\n\nfootball-analytics\n\n\n\nI built an NFL power index, then checked it against the betting market’s own closing prices. It found nothing the market had missed, and all six ways of betting it lost money. A case study in what a negative result looks like.\n\n\n\n\n\nSep 11, 2026\n\n\n\n\n\n\n\nTeam Archetypes: How NFL Teams Actually Play\n\n\nLabels I drew by hand on five seasons of efficiency data — every cut-off shown, and its weak spots named.\n\n\n\nnfl\n\n\ndata-viz\n\n\nfootball-analytics\n\n\n\nAn EPA-based taxonomy of NFL team identity, with every threshold stated and its weak spots named. Explore the profile of all 32 franchises.\n\n\n\n\n\nAug 23, 2026\n\n\n\n\n\n\n\nNFL Teams Don’t Come in Types. They Come in Shades.\n\n\nFour separate tests each had the chance to find real groups. None of them did.\n\n\n\nnfl\n\n\nmethodology\n\n\nclustering\n\n\nfootball-analytics\n\n\n\nTeam archetypes are a useful vocabulary, not a discovered structure. Gap statistic, mclust BIC, a null comparison and bootstrap stability all say NFL team-seasons form one continuous cloud.\n\n\n\n\n\nAug 23, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -770,18 +721,88 @@
     "text": "Get in Touch\nQuestions, collaboration ideas, or data corrections? Find me on GitHub."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Helio’s Data Stories",
+    "objectID": "artifacts.html",
+    "href": "artifacts.html",
+    "title": "Artifacts & reproducibility",
     "section": "",
-    "text": "NFL analytics, personal data experiments, and stories from Mexico."
+    "text": "site/scripts/render-artifacts.R reads the existing nine parquet files below and creates two charts, article tables, and the shared provenance footer under site/_generated/. site/scripts/render-matchup.R separately reads the processed football checkpoints returned by explain_matchup() and creates one retrospective case-study chart, tables, narrative, and a page-specific manifest. Quarto renders only the five named pages into site/_site/. No pipeline/model source is executed, and nothing is written into data/, outputs/, or draft state.\nPublic-safe replacement: the historical NotebookLM corpus, CLV summaries, and matchup exports are deliberately excluded. Deploy only site/_site/, never the repository root or the historic outputs directory."
   },
   {
-    "objectID": "index.html#latest-posts",
-    "href": "index.html#latest-posts",
-    "title": "Helio’s Data Stories",
-    "section": "Latest Posts",
-    "text": "Latest Posts\n\n\n\n\n\nI Built an NFL Power Index. The Closing Line Still Beat It.\n\n\nSix strategies, six losses — and nothing the closing line had missed.\n\n\n\nnfl\n\n\nmethodology\n\n\nbetting-markets\n\n\nfootball-analytics\n\n\n\nI built an NFL power index, then checked it against the betting market’s own closing prices. It found nothing the market had missed, and all six ways of betting it lost money. A case study in what a negative result looks like.\n\n\n\n\n\nSep 11, 2026\n\n\n\n\n\n\n\nTeam Archetypes: How NFL Teams Actually Play\n\n\nLabels I drew by hand on five seasons of efficiency data — every cut-off shown, and its weak spots named.\n\n\n\nnfl\n\n\ndata-viz\n\n\nfootball-analytics\n\n\n\nAn EPA-based taxonomy of NFL team identity, with every threshold stated and its weak spots named. Explore the profile of all 32 franchises.\n\n\n\n\n\nAug 23, 2026\n\n\n\n\n\n\n\nNFL Teams Don’t Come in Types. They Come in Shades.\n\n\nFour separate tests each had the chance to find real groups. None of them did.\n\n\n\nnfl\n\n\nmethodology\n\n\nclustering\n\n\nfootball-analytics\n\n\n\nTeam archetypes are a useful vocabulary, not a discovered structure. Gap statistic, mclust BIC, a null comparison and bootstrap stability all say NFL team-seasons form one continuous cloud.\n\n\n\n\n\nAug 23, 2026\n\n\n\n\n\n\nNo matching items"
+    "objectID": "artifacts.html#what-gets-reproduced",
+    "href": "artifacts.html#what-gets-reproduced",
+    "title": "Artifacts & reproducibility",
+    "section": "",
+    "text": "site/scripts/render-artifacts.R reads the existing nine parquet files below and creates two charts, article tables, and the shared provenance footer under site/_generated/. site/scripts/render-matchup.R separately reads the processed football checkpoints returned by explain_matchup() and creates one retrospective case-study chart, tables, narrative, and a page-specific manifest. Quarto renders only the five named pages into site/_site/. No pipeline/model source is executed, and nothing is written into data/, outputs/, or draft state.\nPublic-safe replacement: the historical NotebookLM corpus, CLV summaries, and matchup exports are deliberately excluded. Deploy only site/_site/, never the repository root or the historic outputs directory."
+  },
+  {
+    "objectID": "artifacts.html#evidence-map",
+    "href": "artifacts.html#evidence-map",
+    "title": "Artifacts & reproducibility",
+    "section": "Evidence map",
+    "text": "Evidence map\n\n\n\n\n\n\n\nArtifact\nRole\n\n\n\n\ndata/05_backtests/38_market_efficiency.parquet\nFour efficiency-test estimates/SEs/nulls; also contains strategy-summary rows, excluded from the coefficient chart.\n\n\ndata/05_backtests/38_strategy_summary.parquet\nAggregate ROI and count for all six strategies.\n\n\ndata/05_backtests/38_strategy_by_season.parquet\nSeason coverage and context: aggregate losses do not mean every season lost.\n\n\ndata/05_backtests/38_bets.parquet\nStrategy threshold units, evaluation seasons, and independent recomputation of summary ROI. Rows repeat games across strategies.\n\n\ndata/04_models/36_incremental_value.parquet\nPaired-bootstrap Brier deltas and intervals.\n\n\ndata/04_models/36_model_metrics.parquet\nRaw and Platt-calibrated performance; a separate experiment from the power-index backtest.\n\n\ndata/04_models/36_predictions.parquet\nTest-season coverage and game-level predictions, repeated across model blocks and overlapping splits.\n\n\ndata/04_models/36_calibration.parquet\nSaved calibration-bin context; not a standalone proof of calibration.\n\n\ndata/04_models/36_feature_importance.parquet\nFeature-gain context, not causal or incremental-value evidence.\n\n\n\nPaths are repository-relative identifiers, not download links. Raw artifacts are intentionally not bundled. A fresh clone needs the reviewed saved artifacts supplied separately; this render fails if they are missing. No fallback uses fabricated, stale-text, or demo data."
+  },
+  {
+    "objectID": "artifacts.html#historical-matchup-snapshot",
+    "href": "artifacts.html#historical-matchup-snapshot",
+    "title": "Artifacts & reproducibility",
+    "section": "Historical matchup snapshot",
+    "text": "Historical matchup snapshot\nThe matchup walkthrough calls explain_matchup(\"PHI\", \"DAL\", 2024, week = 10) against the existing processed checkpoints. It supplies an empty temporary outputs_dir, so no market or opening-line field can enter the public snapshot. The generated page-specific manifest fingerprints every processed RDS checkpoint and the source/helper code used. Its mixed time boundary—full-season team metrics plus Week 10 quarterback and injury context—is stated in the page, chart caption, and manifest."
+  },
+  {
+    "objectID": "artifacts.html#local-commands",
+    "href": "artifacts.html#local-commands",
+    "title": "Artifacts & reproducibility",
+    "section": "Local commands",
+    "text": "Local commands\nFrom the repository root, with Quarto, R, and arrow, ggplot2, knitr, and digest available:\nRscript site/scripts/check-helper.R\nquarto render site\npython3 site/scripts/check-site.py\ngit diff --check\nquarto preview site --no-browser\nThe full render automatically invokes the artifact-only helper. renv.lock is an upstream environment manifest, not an activated project library. No package installation, artifact regeneration, or lockfile changes occur during rendering."
+  },
+  {
+    "objectID": "artifacts.html#how-to-read-the-provenance",
+    "href": "artifacts.html#how-to-read-the-provenance",
+    "title": "Artifacts & reproducibility",
+    "section": "How to read the provenance",
+    "text": "How to read the provenance\nThe shared footer records this publication’s UTC generation time, current Git HEAD, working-tree status, source artifacts, and separate data ranges. It does not claim the saved model files were created by that commit or at render time. The efficiency summary has no season column: its 2021–2025 range is the reviewed scope documented in AGENTS.md and the producer, not something inferred from the shorter bet ledger. Artifact hashes identify the exact bytes read. Publication-source hashes distinguish uncommitted site edits from HEAD.\nA fail-closed editorial guard stops rendering if the saved evidence no longer supports this article’s negative-strategy / unresolved-schematic conclusions. This guards the publication, not the research pipeline: new evidence must prompt an editorial review rather than a model change to force old conclusions.\n\nArtifact fingerprints\nGenerated: 2026-09-11T06:16:42Z\nSource repo Git SHA: ac4d3d5010df661cfc226dc7152d7a002b689458\nData range: NFL regular seasons 2021-2025 (efficiency universe / model development); strategy evaluation 2022-2025; saved model tests 2024-2025.\nResearch only - no picks, no staking advice, no established market edge.\n\n\n\n\n\n\n\n\nSource artifact path\nRows\nSHA256\n\n\n\n\ndata/04_models/36_model_metrics.parquet\n8\nd83f928f256b6e4685431a4f61720f7eae9d20c44f5a4e67cc0874be7364898f\n\n\ndata/04_models/36_predictions.parquet\n1340\n1a703913e33ef86c3f1dcc3127c413aa008b716aca0e7680aac052ba9ec6d1c6\n\n\ndata/04_models/36_feature_importance.parquet\n20\n129a59f1e77da7135eab2d75c817690e30de7835fed3cc9e3996062c2d42ec91\n\n\ndata/04_models/36_calibration.parquet\n21\n4ecea4374cec372a1dcbeea0170e0ecea299884b9de1f1361369c95bf76e3b59\n\n\ndata/04_models/36_incremental_value.parquet\n2\n043988f307faee722987bba0546899fa34b4dcaeea18a0e28162cc40838f1c48\n\n\ndata/05_backtests/38_market_efficiency.parquet\n10\n134bb6585d6ccf94eb2582a3b656ed0d0ee0b51c5ca64cae7247ec136caad83c\n\n\ndata/05_backtests/38_strategy_summary.parquet\n6\nebc9407bb641e9e641eb5a64d84ffdd0e412066ff2dac2958e3902c21ed77995\n\n\ndata/05_backtests/38_strategy_by_season.parquet\n24\ncf0bfaa03c56db640d48b6b8c5b9ee13ec70ce4d809b6966ec771148050a284e\n\n\ndata/05_backtests/38_bets.parquet\n4108\n7dce083ec8d69fe3e91f3a93e7d55a31b3fb70e1b20fe48fefa6412b467f46df\n\n\n\n\n\nPublication-source fingerprints\nThese identify the current publication sources, including uncommitted edits.\n\n\n\n\n\n\n\nPath\nSHA256\n\n\n\n\n_includes/provenance.html\n3e258b4767fcce774770f800b3e33e2101c6198e7ea9574635d9c91a1b25b473\n\n\nposts/market-efficiency/index.qmd\n7d6a169e60e394ccef0e3e8780654912dd2cabc1933fe019c4272fcf004ace11\n\n\nscripts/generate_market_efficiency.R\n7868b5e28e0161d7081fafbad9a5fa8b3505170738f4d329ec6671952cae8a9c\n\n\n\nMethodology and limitations · Project overview"
+  },
+  {
+    "objectID": "methodology.html",
+    "href": "methodology.html",
+    "title": "Methodology & limitations",
+    "section": "",
+    "text": "The research uses nflverse play-by-play, participation data, and schedules accessed through nflreadr and cached by the project. Closing spreads and moneylines come from the cached schedules. The site’s direct numerical inputs are the nine saved 36_* and 38_* parquet artifacts listed in the provenance index. This render does not fetch data or call a pipeline loader.\nThe reviewed development and efficiency universe is NFL regular seasons 2021–2025. Strategy evaluation is 2022–2025, and saved model test predictions cover 2024–2025. These are season labels, not exact calendar dates; the selected parquet summaries do not preserve an exact game-date range or a verified artifact-creation timestamp/SHA."
+  },
+  {
+    "objectID": "methodology.html#sources-and-publication-boundary",
+    "href": "methodology.html#sources-and-publication-boundary",
+    "title": "Methodology & limitations",
+    "section": "",
+    "text": "The research uses nflverse play-by-play, participation data, and schedules accessed through nflreadr and cached by the project. Closing spreads and moneylines come from the cached schedules. The site’s direct numerical inputs are the nine saved 36_* and 38_* parquet artifacts listed in the provenance index. This render does not fetch data or call a pipeline loader.\nThe reviewed development and efficiency universe is NFL regular seasons 2021–2025. Strategy evaluation is 2022–2025, and saved model test predictions cover 2024–2025. These are season labels, not exact calendar dates; the selected parquet summaries do not preserve an exact game-date range or a verified artifact-creation timestamp/SHA."
+  },
+  {
+    "objectID": "methodology.html#no-lookahead-rules",
+    "href": "methodology.html#no-lookahead-rules",
+    "title": "Methodology & limitations",
+    "section": "No-lookahead rules",
+    "text": "No-lookahead rules\n\n\n\n\n\n\n\nComponent\nTiming rule and interpretation\n\n\n\n\nSchematic win model (R/36_win_probability_model.R)\nTrailing five-game team means followed by a one-game lag, reset each season. At least three prior games required; home-minus-away differences give one row per game.\n\n\nModel split A\nFit 2021–2022; Platt calibration 2023; report 2024–2025.\n\n\nModel split B\nFit 2021–2023; Platt calibration 2024; report 2025.\n\n\nXGBoost early stopping\nInternal temporal slice of training data; calibration data reserved for Platt scaling.\n\n\nPower-index backtest (R/38_market_backtest.R)\nProducer rebuilds the index with lag_scores = TRUE; mappings for season S use seasons strictly before S. The initial season is never bet.\n\n\nClosing line\nUnaltered evaluation benchmark; also the price/line against which strategy disagreement is measured. Not evidence of an earlier tradable opportunity.\n\n\n\nThe stored descriptive power rankings are not safe same-game prediction features. Likewise, the season-level matchup explainer and Markdown exporter (R/24_matchup_explainer.R, R/26_export_matchup_report.R) provide structural comparisons, not validated probabilities of a particular game outcome. Their season aggregates can include information later than a named historical week. The published PHI–DAL walkthrough is therefore labelled as a retrospective engineering demonstration, not a pre-kickoff forecast. Its publication helper disables market context and records the exact processed checkpoints it reads."
+  },
+  {
+    "objectID": "methodology.html#population-and-measurement-choices",
+    "href": "methodology.html#population-and-measurement-choices",
+    "title": "Methodology & limitations",
+    "section": "Population and measurement choices",
+    "text": "Population and measurement choices\n\nThe win-model EPA baseline uses regular-season run/pass plays, excluding penalties, kneels, and two-point attempts. Tied games are excluded from its binary win model. Do not generalise that population to every project table: broader descriptive metrics may include postseason plays.\nThe power index is a hand-weighted composite. Its tiers are constructed editorial categories, not external labels learned from Bootleg Football.\nFour-man pressure is a proxy, not charted disguise. Coverage disguise is unavailable without external data. Personnel and pass-rusher counts depend on the participation join; absence is not a zero.\nIn the closing-line convention, a positive spread denotes the home team’s expected margin. Residual error is actual home margin minus closing spread.\nEfficiency regressions include the initial development season. They use ordinary regression standard errors. Failure to reject is not proof of no effect or universal market efficiency.\nThe spread backtest excludes pushes; the moneyline implementation treats a tie as home_won = 0, not as an explicit sportsbook refund. This is a known settlement limitation, not a claim about how a live book would grade it.\nThe reported spread ROI assumes −110 for every recorded bet. Moneyline ROI uses offered prices and fractional sizing; neither is a live-execution study.\nThresholds overlap, seasons are few, and repeated experimentation can favour apparently promising results. No multiple-testing correction or independent prospective validation is claimed.\nThe Brier bootstrap pairs predictions by game, not by team/season block. Dependence across games is not explicitly modelled. The two test windows overlap. Neither interval establishes incremental schematic value."
+  },
+  {
+    "objectID": "methodology.html#invalid-research-is-not-a-null-result",
+    "href": "methodology.html#invalid-research-is-not-a-null-result",
+    "title": "Methodology & limitations",
+    "section": "Invalid research is not a null result",
+    "text": "Invalid research is not a null result\nOld historical opening lines were generated from closing lines plus random noise. The dependent opening-line movement / CLV studies (R/17–R/19) are invalid, not evidence of successful timing and not a valid null finding. R/11_scrape_opening_lines.R is now disabled. No synthetic-era performance figures, QB direction-match hit rates, watchlists, or derived advice are reused.\nThis site is the public-safe replacement, not a republication of outputs/notebooklm/*.md or historic research documents. Those files remain unchanged and are not copied into the site output."
+  },
+  {
+    "objectID": "methodology.html#reproducibility-is-bounded",
+    "href": "methodology.html#reproducibility-is-bounded",
+    "title": "Methodology & limitations",
+    "section": "Reproducibility is bounded",
+    "text": "Reproducibility is bounded\nThe renderer validates required artifacts and checks summary ROI against the saved bet ledger. It reconstructs charts and tables, not the upstream models. Render timestamp, checkout SHA, source paths, artifact hashes, and current publication-source hashes are recorded. A checkout SHA is not proof that it produced an existing artifact; missing historical lineage remains missing.\nRead the closing-line study"
   },
   {
     "objectID": "posts/market-efficiency/index.html",
