@@ -61,6 +61,36 @@ quarto preview --no-render
   `#quarto-document-content` (an **id**, not a class) — scoping to
   `.quarto-document-content` silently does nothing.
 
+## Postgame game posts
+
+A game post is the nfl_analytics R/47 **public report**, embedded unedited, plus
+a headline and a few paragraphs. Every number a reader sees comes from R/47:
+
+```bash
+# 1. nfl_analytics on a clean, up-to-date main (the report names its commit)
+cd ~/Documents/nfl_analytics && git pull
+
+# 2. draft: builds the report, runs R/47's smoke test, writes
+#    posts/<season>-wk-<week>-<away>-<home>/{index.qmd, game-charts.html, facts.json}
+cd ~/"Documents/personal agent/projects/publishing/blog"
+Rscript scripts/new_game_post.R 2026_02_BUF_MIA --strip=turnovers,explosive,success,swing_value
+
+# 3. write the TODOs (title, banner, two paragraphs), quoting from the facts
+#    list inside index.qmd; re-running step 2 refreshes the generated blocks
+#    and never touches your prose
+
+# 4. gate: fails on TODOs, a hand-edited report, betting language, or any
+#    number not in facts.json or the report; warns on hedged numbers
+Rscript scripts/check_game_post.R 2026-wk-2-buf-mia
+
+# 5. preview, then commit, push and publish
+quarto preview posts/2026-wk-2-buf-mia/index.qmd
+```
+
+`new_game_post.R` refuses a game whose numbers R/47 has never checked against
+independent measurements (`GAME_CHARTS_EXPECTED`); `--allow-unverified` drafts
+it anyway and the provenance says so.
+
 ## Market-efficiency post
 
 `posts/market-efficiency/` reads seven generated fragments from `_generated/`.
