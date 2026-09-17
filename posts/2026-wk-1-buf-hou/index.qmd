@@ -1,0 +1,99 @@
+---
+title: "Houston Was Better in the Red Zone and Still Lost"
+subtitle: "Four touchdowns on five trips inside the 20. Buffalo scored three touchdowns without ever getting there."
+description: "Houston scored touchdowns on four of five red-zone trips to Buffalo's one of three, and still lost 36–31. Buffalo's touchdowns came from long drives that never snapped inside the 20, and Houston's last trip ended in a strip-sack fumble."
+date: 2026-09-16
+author: "Helio"
+categories: [nfl, football-analytics]
+format:
+  html:
+    css: ../../styles.css
+---
+
+```{=html}
+<div class="title-bar">
+  <h2>Houston Was Better in the Red Zone and Still Lost</h2>
+  <p>Postgame analysis · Week 1, 2026 · Buffalo 36, Houston 31</p>
+</div>
+```
+
+Houston did the thing offenses are told to do: it got close and finished. Four of its five trips inside Buffalo's 20 ended in touchdowns. Buffalo went one for three.
+
+Buffalo won anyway, because it did not need the red zone. Three of its four touchdown drives never ran a play inside Houston's 20 — they ended on long gains instead. Houston had no touchdown drives like that. And Houston's fifth red-zone trip, the one that could have won the game, ended with a strip-sack fumble with 16 seconds left.
+
+One afternoon, measured through the final whistle. Nothing here says anything about either team's season.
+
+```{=html}
+<div class="insight-strip">
+  <div class="insight-item">
+    <div class="insight-value">4 of 5</div>
+    <div class="insight-label">Houston red-zone trips ending in a touchdown</div>
+  </div>
+  <div class="insight-item">
+    <div class="insight-value">1 of 3</div>
+    <div class="insight-label">Buffalo red-zone trips ending in a touchdown</div>
+  </div>
+  <div class="insight-item">
+    <div class="insight-value">3 to 0</div>
+    <div class="insight-label">Touchdown drives that never reached the 20, Buffalo to Houston</div>
+  </div>
+  <div class="insight-item">
+    <div class="insight-value">0 to 2</div>
+    <div class="insight-label">Turnovers, Buffalo to Houston</div>
+  </div>
+</div>
+```
+
+The rest of the box score leaned Houston's way too: a higher success rate (46.6% to 40.4%), more third-down conversions (7 of 16 to 3 of 9), and the ball for 36:17. The full picture is the report below — every number in this story is in it, with the charts behind each one.
+
+```{=html}
+<div class="report-wrap" style="margin: 1.5rem 0 0.5rem;">
+  <p style="font-family: var(--font-display); font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0.5rem;">
+    <a href="game-charts.html" target="_blank" rel="noopener">Open the full report in its own tab</a>
+  </p>
+  <iframe id="game-report" src="game-charts.html" title="Full interactive game report: Buffalo 36, Houston 31, Week 1 2026"
+          scrolling="no"
+          style="width: 100%; height: 2200px; border: 1px solid var(--color-border); border-radius: 8px; background: #ffffff; display: block; overflow: hidden;"></iframe>
+</div>
+<script>
+(function () {
+  var f = document.getElementById('game-report');
+  function fit() {
+    try {
+      var d = f.contentDocument;
+      if (!d || !d.body) return;
+      var cs = d.defaultView.getComputedStyle(d.body);
+      f.style.height = Math.ceil(d.body.getBoundingClientRect().height + parseFloat(cs.marginTop) + parseFloat(cs.marginBottom)) + 'px';
+    } catch (e) { /* cross-origin: keep the fixed height */ }
+  }
+  var ready = null;
+  function setup() {
+    try {
+      var d = f.contentDocument;
+      if (!d || !d.body || d.location.href === 'about:blank' || ready === d) return;
+      ready = d;
+      if (window.ResizeObserver) new ResizeObserver(fit).observe(d.body);
+      d.addEventListener('toggle', fit, true);
+    } catch (e) {}
+    fit();
+  }
+  f.addEventListener('load', setup);
+  try { if (f.contentDocument && f.contentDocument.readyState === 'complete') setup(); } catch (e) {}
+  window.addEventListener('resize', fit);
+})();
+</script>
+```
+
+## What this is not
+
+- **One game.** A single afternoon is too small to say anything about team quality. Nothing here is a forecast.
+- **Red-zone trip** means a drive with at least one snap from the opponent's 20 or closer. Field-goal attempts count; kneel-downs, extra points and two-point tries do not.
+- **Win probability** is the feed's model, with no market input.
+- **No betting or market prices.** This piece describes one game, nothing more.
+
+## Provenance
+
+- **Game:** Buffalo at Houston, Week 1, 2026 (`2026_01_BUF_HOU`). Final: Buffalo 36, Houston 31.
+- **Data:** nflverse play-by-play for Week 1, 2026, through the final whistle (source file md5 `60a1a4874de6447eab83601acc51cca5`).
+- **Report:** the public edition of `R/47_game_charts.R`, unedited (script md5 `ba518373fbdfc40a79029090f13c0cfd`, commit `a7a8bb9`, clean working tree).
+- **Charting data:** © FTN Data via nflverse, CC-BY-SA 4.0.

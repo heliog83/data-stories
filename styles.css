@@ -82,7 +82,8 @@ body {
   margin: 20px 0 24px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
 }
-.title-bar h2 {
+.title-bar h2,
+#quarto-document-content .title-bar h2 {
   margin: 0 0 6px;
   font-family: var(--font-display);
   font-size: 1.35rem;
