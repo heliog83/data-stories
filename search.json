@@ -665,60 +665,46 @@
     "text": "Data & Provenance\nThe chart uses official, daily aggregate data from Gas Infrastructure Europe (GIE AGSI+):\n\nSeries: Aggregated Gas Storage Inventory (EU Total, type=EU).\nSpan: 5,733 daily records, January 1, 2011 through September 11, 2026.\nFetch date: September 12, 2026.\nLicence & attribution: Mandatory attribution: Source: GIE AGSI+.\n\nMany media visualisations rely on commercial feeds (such as S&P Global Platts). AGSI+ publishes the same underlying operational reports directly from European storage facility operators, free and open to the public."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Helio’s Data Stories",
+    "objectID": "methodology.html",
+    "href": "methodology.html",
+    "title": "Methodology & limitations",
     "section": "",
-    "text": "NFL analytics, personal data experiments, and stories from Mexico."
+    "text": "The research uses nflverse play-by-play, participation data, and schedules accessed through nflreadr and cached by the project. Closing spreads and moneylines come from the cached schedules. The site’s direct numerical inputs are the nine saved 36_* and 38_* parquet artifacts listed in the provenance index. This render does not fetch data or call a pipeline loader.\nThe reviewed development and efficiency universe is NFL regular seasons 2021–2025. Strategy evaluation is 2022–2025, and saved model test predictions cover 2024–2025. These are season labels, not exact calendar dates; the selected parquet summaries do not preserve an exact game-date range or a verified artifact-creation timestamp/SHA."
   },
   {
-    "objectID": "index.html#latest-posts",
-    "href": "index.html#latest-posts",
-    "title": "Helio’s Data Stories",
-    "section": "Latest Posts",
-    "text": "Latest Posts\n\n\n\n\n\nEurope’s Refill Season Is the Weakest in 15 Years\n\n\nHeading into autumn at 68% full, European storage sites are trailing every refill season since 2011.\n\n\n\nenergy\n\n\neurope\n\n\ncommodities\n\n\ndata-viz\n\n\n\nEurope enters autumn with underground gas storage at 67.8% full — trailing every refill season of the past 15 years. Visualising daily GIE AGSI+ data from 2011 to September 2026.\n\n\n\n\n\nSep 13, 2026\n\n\n\n\n\n\n\nI Built an NFL Power Index. The Closing Line Still Beat It.\n\n\nSix strategies, six losses — and nothing the closing line had missed.\n\n\n\nnfl\n\n\nmethodology\n\n\nbetting-markets\n\n\nfootball-analytics\n\n\n\nI built an NFL power index, then checked it against the betting market’s own closing prices. It found nothing the market had missed, and all six ways of betting it lost money. A case study in what a negative result looks like.\n\n\n\n\n\nSep 11, 2026\n\n\n\n\n\n\n\nTeam Archetypes: How NFL Teams Actually Play\n\n\nLabels I drew by hand on five seasons of efficiency data — every cut-off shown, and its weak spots named.\n\n\n\nnfl\n\n\ndata-viz\n\n\nfootball-analytics\n\n\n\nAn EPA-based taxonomy of NFL team identity, with every threshold stated and its weak spots named. Explore the profile of all 32 franchises.\n\n\n\n\n\nAug 23, 2026\n\n\n\n\n\n\n\nNFL Teams Don’t Come in Types. They Come in Shades.\n\n\nFour separate tests each had the chance to find real groups. None of them did.\n\n\n\nnfl\n\n\nmethodology\n\n\nclustering\n\n\nfootball-analytics\n\n\n\nTeam archetypes are a useful vocabulary, not a discovered structure. Gap statistic, mclust BIC, a null comparison and bootstrap stability all say NFL team-seasons form one continuous cloud.\n\n\n\n\n\nAug 23, 2026\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "methodology.html#sources-and-publication-boundary",
+    "href": "methodology.html#sources-and-publication-boundary",
+    "title": "Methodology & limitations",
     "section": "",
-    "text": "I’m Helio — a data analyst based in Mexico who believes the best way to understand something is to measure it, visualize it, and be honest about what the data does and doesn’t say."
+    "text": "The research uses nflverse play-by-play, participation data, and schedules accessed through nflreadr and cached by the project. Closing spreads and moneylines come from the cached schedules. The site’s direct numerical inputs are the nine saved 36_* and 38_* parquet artifacts listed in the provenance index. This render does not fetch data or call a pipeline loader.\nThe reviewed development and efficiency universe is NFL regular seasons 2021–2025. Strategy evaluation is 2022–2025, and saved model test predictions cover 2024–2025. These are season labels, not exact calendar dates; the selected parquet summaries do not preserve an exact game-date range or a verified artifact-creation timestamp/SHA."
   },
   {
-    "objectID": "about.html#who-i-am",
-    "href": "about.html#who-i-am",
-    "title": "About",
-    "section": "",
-    "text": "I’m Helio — a data analyst based in Mexico who believes the best way to understand something is to measure it, visualize it, and be honest about what the data does and doesn’t say."
+    "objectID": "methodology.html#no-lookahead-rules",
+    "href": "methodology.html#no-lookahead-rules",
+    "title": "Methodology & limitations",
+    "section": "No-lookahead rules",
+    "text": "No-lookahead rules\n\n\n\n\n\n\n\nComponent\nTiming rule and interpretation\n\n\n\n\nSchematic win model (R/36_win_probability_model.R)\nTrailing five-game team means followed by a one-game lag, reset each season. At least three prior games required; home-minus-away differences give one row per game.\n\n\nModel split A\nFit 2021–2022; Platt calibration 2023; report 2024–2025.\n\n\nModel split B\nFit 2021–2023; Platt calibration 2024; report 2025.\n\n\nXGBoost early stopping\nInternal temporal slice of training data; calibration data reserved for Platt scaling.\n\n\nPower-index backtest (R/38_market_backtest.R)\nProducer rebuilds the index with lag_scores = TRUE; mappings for season S use seasons strictly before S. The initial season is never bet.\n\n\nClosing line\nUnaltered evaluation benchmark; also the price/line against which strategy disagreement is measured. Not evidence of an earlier tradable opportunity.\n\n\n\nThe stored descriptive power rankings are not safe same-game prediction features. Likewise, the season-level matchup explainer and Markdown exporter (R/24_matchup_explainer.R, R/26_export_matchup_report.R) provide structural comparisons, not validated probabilities of a particular game outcome. Their season aggregates can include information later than a named historical week. The published PHI–DAL walkthrough is therefore labelled as a retrospective engineering demonstration, not a pre-kickoff forecast. Its publication helper disables market context and records the exact processed checkpoints it reads."
   },
   {
-    "objectID": "about.html#what-this-blog-is",
-    "href": "about.html#what-this-blog-is",
-    "title": "About",
-    "section": "What This Blog Is",
-    "text": "What This Blog Is\nI publish negative results alongside positive ones, state the assumptions in the open, and show the thresholds and prices behind every number. I write in three lanes:\n\n🏈 NFL Analytics — team archetypes, matchup explanations, and betting model research using EPA and play-by-play data\n🏃 Personal Data — what my own Garmin, training, and life data actually show\n🇲🇽 Mexico & Social — disappearances, economic data, and stories that deserve careful, dignified analysis"
+    "objectID": "methodology.html#population-and-measurement-choices",
+    "href": "methodology.html#population-and-measurement-choices",
+    "title": "Methodology & limitations",
+    "section": "Population and measurement choices",
+    "text": "Population and measurement choices\n\nThe win-model EPA baseline uses regular-season run/pass plays, excluding penalties, kneels, and two-point attempts. Tied games are excluded from its binary win model. Do not generalise that population to every project table: broader descriptive metrics may include postseason plays.\nThe power index is a hand-weighted composite. Its tiers are constructed editorial categories, not external labels learned from Bootleg Football.\nFour-man pressure is a proxy, not charted disguise. Coverage disguise is unavailable without external data. Personnel and pass-rusher counts depend on the participation join; absence is not a zero.\nIn the closing-line convention, a positive spread denotes the home team’s expected margin. Residual error is actual home margin minus closing spread.\nEfficiency regressions include the initial development season. They use ordinary regression standard errors. Failure to reject is not proof of no effect or universal market efficiency.\nThe spread backtest excludes pushes; the moneyline implementation treats a tie as home_won = 0, not as an explicit sportsbook refund. This is a known settlement limitation, not a claim about how a live book would grade it.\nThe reported spread ROI assumes −110 for every recorded bet. Moneyline ROI uses offered prices and fractional sizing; neither is a live-execution study.\nThresholds overlap, seasons are few, and repeated experimentation can favour apparently promising results. No multiple-testing correction or independent prospective validation is claimed.\nThe Brier bootstrap pairs predictions by game, not by team/season block. Dependence across games is not explicitly modelled. The two test windows overlap. Neither interval establishes incremental schematic value."
   },
   {
-    "objectID": "about.html#the-design-philosophy",
-    "href": "about.html#the-design-philosophy",
-    "title": "About",
-    "section": "The Design Philosophy",
-    "text": "The Design Philosophy\nInspired by The Economist: high data-ink ratio, direct labels instead of legends, one takeaway per chart, and titles that state findings, not topics.\nThe analysis pipeline is built in R (tidyverse, ggplot2, Shiny) and Python. Charts are rendered from code — no Canva, no manual pixel pushing."
+    "objectID": "methodology.html#invalid-research-is-not-a-null-result",
+    "href": "methodology.html#invalid-research-is-not-a-null-result",
+    "title": "Methodology & limitations",
+    "section": "Invalid research is not a null result",
+    "text": "Invalid research is not a null result\nOld historical opening lines were generated from closing lines plus random noise. The dependent opening-line movement / CLV studies (R/17–R/19) are invalid, not evidence of successful timing and not a valid null finding. R/11_scrape_opening_lines.R is now disabled. No synthetic-era performance figures, QB direction-match hit rates, watchlists, or derived advice are reused.\nThis site is the public-safe replacement, not a republication of outputs/notebooklm/*.md or historic research documents. Those files remain unchanged and are not copied into the site output."
   },
   {
-    "objectID": "about.html#tools",
-    "href": "about.html#tools",
-    "title": "About",
-    "section": "Tools",
-    "text": "Tools\n\nR (nflfastR, dplyr, ggplot2, gt, Shiny)\nPython (pandas, matplotlib)\nQuarto for publishing\nNotebookLM for research and brainstorming"
-  },
-  {
-    "objectID": "about.html#get-in-touch",
-    "href": "about.html#get-in-touch",
-    "title": "About",
-    "section": "Get in Touch",
-    "text": "Get in Touch\nQuestions, collaboration ideas, or data corrections? Find me on GitHub."
+    "objectID": "methodology.html#reproducibility-is-bounded",
+    "href": "methodology.html#reproducibility-is-bounded",
+    "title": "Methodology & limitations",
+    "section": "Reproducibility is bounded",
+    "text": "Reproducibility is bounded\nThe renderer validates required artifacts and checks summary ROI against the saved bet ledger. It reconstructs charts and tables, not the upstream models. Render timestamp, checkout SHA, source paths, artifact hashes, and current publication-source hashes are recorded. A checkout SHA is not proof that it produced an existing artifact; missing historical lineage remains missing.\nRead the closing-line study"
   },
   {
     "objectID": "artifacts.html",
@@ -763,46 +749,81 @@
     "text": "How to read the provenance\nThe shared footer records this publication’s UTC generation time, current Git HEAD, working-tree status, source artifacts, and separate data ranges. It does not claim the saved model files were created by that commit or at render time. The efficiency summary has no season column: its 2021–2025 range is the reviewed scope documented in AGENTS.md and the producer, not something inferred from the shorter bet ledger. Artifact hashes identify the exact bytes read. Publication-source hashes distinguish uncommitted site edits from HEAD.\nA fail-closed editorial guard stops rendering if the saved evidence no longer supports this article’s negative-strategy / unresolved-schematic conclusions. This guards the publication, not the research pipeline: new evidence must prompt an editorial review rather than a model change to force old conclusions.\n\nArtifact fingerprints\nGenerated: 2026-09-11T06:16:42Z\nSource repo Git SHA: ac4d3d5010df661cfc226dc7152d7a002b689458\nData range: NFL regular seasons 2021-2025 (efficiency universe / model development); strategy evaluation 2022-2025; saved model tests 2024-2025.\nResearch only - no picks, no staking advice, no established market edge.\n\n\n\n\n\n\n\n\nSource artifact path\nRows\nSHA256\n\n\n\n\ndata/04_models/36_model_metrics.parquet\n8\nd83f928f256b6e4685431a4f61720f7eae9d20c44f5a4e67cc0874be7364898f\n\n\ndata/04_models/36_predictions.parquet\n1340\n1a703913e33ef86c3f1dcc3127c413aa008b716aca0e7680aac052ba9ec6d1c6\n\n\ndata/04_models/36_feature_importance.parquet\n20\n129a59f1e77da7135eab2d75c817690e30de7835fed3cc9e3996062c2d42ec91\n\n\ndata/04_models/36_calibration.parquet\n21\n4ecea4374cec372a1dcbeea0170e0ecea299884b9de1f1361369c95bf76e3b59\n\n\ndata/04_models/36_incremental_value.parquet\n2\n043988f307faee722987bba0546899fa34b4dcaeea18a0e28162cc40838f1c48\n\n\ndata/05_backtests/38_market_efficiency.parquet\n10\n134bb6585d6ccf94eb2582a3b656ed0d0ee0b51c5ca64cae7247ec136caad83c\n\n\ndata/05_backtests/38_strategy_summary.parquet\n6\nebc9407bb641e9e641eb5a64d84ffdd0e412066ff2dac2958e3902c21ed77995\n\n\ndata/05_backtests/38_strategy_by_season.parquet\n24\ncf0bfaa03c56db640d48b6b8c5b9ee13ec70ce4d809b6966ec771148050a284e\n\n\ndata/05_backtests/38_bets.parquet\n4108\n7dce083ec8d69fe3e91f3a93e7d55a31b3fb70e1b20fe48fefa6412b467f46df\n\n\n\n\n\nPublication-source fingerprints\nThese identify the current publication sources, including uncommitted edits.\n\n\n\n\n\n\n\nPath\nSHA256\n\n\n\n\n_includes/provenance.html\n3e258b4767fcce774770f800b3e33e2101c6198e7ea9574635d9c91a1b25b473\n\n\nposts/market-efficiency/index.qmd\n7d6a169e60e394ccef0e3e8780654912dd2cabc1933fe019c4272fcf004ace11\n\n\nscripts/generate_market_efficiency.R\n7868b5e28e0161d7081fafbad9a5fa8b3505170738f4d329ec6671952cae8a9c\n\n\n\nMethodology and limitations · Project overview"
   },
   {
-    "objectID": "methodology.html",
-    "href": "methodology.html",
-    "title": "Methodology & limitations",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "The research uses nflverse play-by-play, participation data, and schedules accessed through nflreadr and cached by the project. Closing spreads and moneylines come from the cached schedules. The site’s direct numerical inputs are the nine saved 36_* and 38_* parquet artifacts listed in the provenance index. This render does not fetch data or call a pipeline loader.\nThe reviewed development and efficiency universe is NFL regular seasons 2021–2025. Strategy evaluation is 2022–2025, and saved model test predictions cover 2024–2025. These are season labels, not exact calendar dates; the selected parquet summaries do not preserve an exact game-date range or a verified artifact-creation timestamp/SHA."
+    "text": "I’m Helio — a data analyst based in Mexico who believes the best way to understand something is to measure it, visualize it, and be honest about what the data does and doesn’t say."
   },
   {
-    "objectID": "methodology.html#sources-and-publication-boundary",
-    "href": "methodology.html#sources-and-publication-boundary",
-    "title": "Methodology & limitations",
+    "objectID": "about.html#who-i-am",
+    "href": "about.html#who-i-am",
+    "title": "About",
     "section": "",
-    "text": "The research uses nflverse play-by-play, participation data, and schedules accessed through nflreadr and cached by the project. Closing spreads and moneylines come from the cached schedules. The site’s direct numerical inputs are the nine saved 36_* and 38_* parquet artifacts listed in the provenance index. This render does not fetch data or call a pipeline loader.\nThe reviewed development and efficiency universe is NFL regular seasons 2021–2025. Strategy evaluation is 2022–2025, and saved model test predictions cover 2024–2025. These are season labels, not exact calendar dates; the selected parquet summaries do not preserve an exact game-date range or a verified artifact-creation timestamp/SHA."
+    "text": "I’m Helio — a data analyst based in Mexico who believes the best way to understand something is to measure it, visualize it, and be honest about what the data does and doesn’t say."
   },
   {
-    "objectID": "methodology.html#no-lookahead-rules",
-    "href": "methodology.html#no-lookahead-rules",
-    "title": "Methodology & limitations",
-    "section": "No-lookahead rules",
-    "text": "No-lookahead rules\n\n\n\n\n\n\n\nComponent\nTiming rule and interpretation\n\n\n\n\nSchematic win model (R/36_win_probability_model.R)\nTrailing five-game team means followed by a one-game lag, reset each season. At least three prior games required; home-minus-away differences give one row per game.\n\n\nModel split A\nFit 2021–2022; Platt calibration 2023; report 2024–2025.\n\n\nModel split B\nFit 2021–2023; Platt calibration 2024; report 2025.\n\n\nXGBoost early stopping\nInternal temporal slice of training data; calibration data reserved for Platt scaling.\n\n\nPower-index backtest (R/38_market_backtest.R)\nProducer rebuilds the index with lag_scores = TRUE; mappings for season S use seasons strictly before S. The initial season is never bet.\n\n\nClosing line\nUnaltered evaluation benchmark; also the price/line against which strategy disagreement is measured. Not evidence of an earlier tradable opportunity.\n\n\n\nThe stored descriptive power rankings are not safe same-game prediction features. Likewise, the season-level matchup explainer and Markdown exporter (R/24_matchup_explainer.R, R/26_export_matchup_report.R) provide structural comparisons, not validated probabilities of a particular game outcome. Their season aggregates can include information later than a named historical week. The published PHI–DAL walkthrough is therefore labelled as a retrospective engineering demonstration, not a pre-kickoff forecast. Its publication helper disables market context and records the exact processed checkpoints it reads."
+    "objectID": "about.html#what-this-blog-is",
+    "href": "about.html#what-this-blog-is",
+    "title": "About",
+    "section": "What This Blog Is",
+    "text": "What This Blog Is\nI publish negative results alongside positive ones, state the assumptions in the open, and show the thresholds and prices behind every number. I write in three lanes:\n\n🏈 NFL Analytics — team archetypes, matchup explanations, and betting model research using EPA and play-by-play data\n🏃 Personal Data — what my own Garmin, training, and life data actually show\n🇲🇽 Mexico & Social — disappearances, economic data, and stories that deserve careful, dignified analysis"
   },
   {
-    "objectID": "methodology.html#population-and-measurement-choices",
-    "href": "methodology.html#population-and-measurement-choices",
-    "title": "Methodology & limitations",
-    "section": "Population and measurement choices",
-    "text": "Population and measurement choices\n\nThe win-model EPA baseline uses regular-season run/pass plays, excluding penalties, kneels, and two-point attempts. Tied games are excluded from its binary win model. Do not generalise that population to every project table: broader descriptive metrics may include postseason plays.\nThe power index is a hand-weighted composite. Its tiers are constructed editorial categories, not external labels learned from Bootleg Football.\nFour-man pressure is a proxy, not charted disguise. Coverage disguise is unavailable without external data. Personnel and pass-rusher counts depend on the participation join; absence is not a zero.\nIn the closing-line convention, a positive spread denotes the home team’s expected margin. Residual error is actual home margin minus closing spread.\nEfficiency regressions include the initial development season. They use ordinary regression standard errors. Failure to reject is not proof of no effect or universal market efficiency.\nThe spread backtest excludes pushes; the moneyline implementation treats a tie as home_won = 0, not as an explicit sportsbook refund. This is a known settlement limitation, not a claim about how a live book would grade it.\nThe reported spread ROI assumes −110 for every recorded bet. Moneyline ROI uses offered prices and fractional sizing; neither is a live-execution study.\nThresholds overlap, seasons are few, and repeated experimentation can favour apparently promising results. No multiple-testing correction or independent prospective validation is claimed.\nThe Brier bootstrap pairs predictions by game, not by team/season block. Dependence across games is not explicitly modelled. The two test windows overlap. Neither interval establishes incremental schematic value."
+    "objectID": "about.html#the-design-philosophy",
+    "href": "about.html#the-design-philosophy",
+    "title": "About",
+    "section": "The Design Philosophy",
+    "text": "The Design Philosophy\nInspired by The Economist: high data-ink ratio, direct labels instead of legends, one takeaway per chart, and titles that state findings, not topics.\nThe analysis pipeline is built in R (tidyverse, ggplot2, Shiny) and Python. Charts are rendered from code — no Canva, no manual pixel pushing."
   },
   {
-    "objectID": "methodology.html#invalid-research-is-not-a-null-result",
-    "href": "methodology.html#invalid-research-is-not-a-null-result",
-    "title": "Methodology & limitations",
-    "section": "Invalid research is not a null result",
-    "text": "Invalid research is not a null result\nOld historical opening lines were generated from closing lines plus random noise. The dependent opening-line movement / CLV studies (R/17–R/19) are invalid, not evidence of successful timing and not a valid null finding. R/11_scrape_opening_lines.R is now disabled. No synthetic-era performance figures, QB direction-match hit rates, watchlists, or derived advice are reused.\nThis site is the public-safe replacement, not a republication of outputs/notebooklm/*.md or historic research documents. Those files remain unchanged and are not copied into the site output."
+    "objectID": "about.html#tools",
+    "href": "about.html#tools",
+    "title": "About",
+    "section": "Tools",
+    "text": "Tools\n\nR (nflfastR, dplyr, ggplot2, gt, Shiny)\nPython (pandas, matplotlib)\nQuarto for publishing\nNotebookLM for research and brainstorming"
   },
   {
-    "objectID": "methodology.html#reproducibility-is-bounded",
-    "href": "methodology.html#reproducibility-is-bounded",
-    "title": "Methodology & limitations",
-    "section": "Reproducibility is bounded",
-    "text": "Reproducibility is bounded\nThe renderer validates required artifacts and checks summary ROI against the saved bet ledger. It reconstructs charts and tables, not the upstream models. Render timestamp, checkout SHA, source paths, artifact hashes, and current publication-source hashes are recorded. A checkout SHA is not proof that it produced an existing artifact; missing historical lineage remains missing.\nRead the closing-line study"
+    "objectID": "about.html#get-in-touch",
+    "href": "about.html#get-in-touch",
+    "title": "About",
+    "section": "Get in Touch",
+    "text": "Get in Touch\nQuestions, collaboration ideas, or data corrections? Find me on GitHub."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Helio’s Data Stories",
+    "section": "",
+    "text": "NFL analytics, personal data experiments, and stories from Mexico."
+  },
+  {
+    "objectID": "index.html#latest-posts",
+    "href": "index.html#latest-posts",
+    "title": "Helio’s Data Stories",
+    "section": "Latest Posts",
+    "text": "Latest Posts\n\n\n\n\n\nHouston Was Better in the Red Zone and Still Lost\n\n\nFour touchdowns on five trips inside the 20. Buffalo scored three touchdowns without ever getting there.\n\n\n\nnfl\n\n\nfootball-analytics\n\n\n\nHouston scored touchdowns on four of five red-zone trips to Buffalo’s one of three, and still lost 36–31. Buffalo’s touchdowns came from long drives that never snapped inside the 20, and Houston’s last trip ended in a strip-sack fumble.\n\n\n\n\n\nSep 16, 2026\n\n\n\n\n\n\n\nEurope’s Refill Season Is the Weakest in 15 Years\n\n\nHeading into autumn at 68% full, European storage sites are trailing every refill season since 2011.\n\n\n\nenergy\n\n\neurope\n\n\ncommodities\n\n\ndata-viz\n\n\n\nEurope enters autumn with underground gas storage at 67.8% full — trailing every refill season of the past 15 years. Visualising daily GIE AGSI+ data from 2011 to September 2026.\n\n\n\n\n\nSep 13, 2026\n\n\n\n\n\n\n\nI Built an NFL Power Index. The Closing Line Still Beat It.\n\n\nSix strategies, six losses — and nothing the closing line had missed.\n\n\n\nnfl\n\n\nmethodology\n\n\nbetting-markets\n\n\nfootball-analytics\n\n\n\nI built an NFL power index, then checked it against the betting market’s own closing prices. It found nothing the market had missed, and all six ways of betting it lost money. A case study in what a negative result looks like.\n\n\n\n\n\nSep 11, 2026\n\n\n\n\n\n\n\nTeam Archetypes: How NFL Teams Actually Play\n\n\nLabels I drew by hand on five seasons of efficiency data — every cut-off shown, and its weak spots named.\n\n\n\nnfl\n\n\ndata-viz\n\n\nfootball-analytics\n\n\n\nAn EPA-based taxonomy of NFL team identity, with every threshold stated and its weak spots named. Explore the profile of all 32 franchises.\n\n\n\n\n\nAug 23, 2026\n\n\n\n\n\n\n\nNFL Teams Don’t Come in Types. They Come in Shades.\n\n\nFour separate tests each had the chance to find real groups. None of them did.\n\n\n\nnfl\n\n\nmethodology\n\n\nclustering\n\n\nfootball-analytics\n\n\n\nTeam archetypes are a useful vocabulary, not a discovered structure. Gap statistic, mclust BIC, a null comparison and bootstrap stability all say NFL team-seasons form one continuous cloud.\n\n\n\n\n\nAug 23, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/2026-wk-1-buf-hou/index.html",
+    "href": "posts/2026-wk-1-buf-hou/index.html",
+    "title": "Houston Was Better in the Red Zone and Still Lost",
+    "section": "",
+    "text": "Postgame analysis · Week 1, 2026 · Buffalo 36, Houston 31\nHouston did the thing offenses are told to do: it got close and finished. Four of its five trips inside Buffalo’s 20 ended in touchdowns. Buffalo went one for three.\nBuffalo won anyway, because it did not need the red zone. Three of its four touchdown drives never ran a play inside Houston’s 20 — they ended on long gains instead. Houston had no touchdown drives like that. And Houston’s fifth red-zone trip, the one that could have won the game, ended with a strip-sack fumble with 16 seconds left.\nOne afternoon, measured through the final whistle. Nothing here says anything about either team’s season.\nThe rest of the box score leaned Houston’s way too: a higher success rate (46.6% to 40.4%), more third-down conversions (7 of 16 to 3 of 9), and the ball for 36:17. The full picture is the report below — every number in this story is in it, with the charts behind each one."
+  },
+  {
+    "objectID": "posts/2026-wk-1-buf-hou/index.html#what-this-is-not",
+    "href": "posts/2026-wk-1-buf-hou/index.html#what-this-is-not",
+    "title": "Houston Was Better in the Red Zone and Still Lost",
+    "section": "What this is not",
+    "text": "What this is not\n\nOne game. A single afternoon is too small to say anything about team quality. Nothing here is a forecast.\nRed-zone trip means a drive with at least one snap from the opponent’s 20 or closer. Field-goal attempts count; kneel-downs, extra points and two-point tries do not.\nWin probability is the feed’s model, with no market input.\nNo betting or market prices. This piece describes one game, nothing more."
+  },
+  {
+    "objectID": "posts/2026-wk-1-buf-hou/index.html#provenance",
+    "href": "posts/2026-wk-1-buf-hou/index.html#provenance",
+    "title": "Houston Was Better in the Red Zone and Still Lost",
+    "section": "Provenance",
+    "text": "Provenance\n\nGame: Buffalo at Houston, Week 1, 2026 (2026_01_BUF_HOU). Final: Buffalo 36, Houston 31.\nData: nflverse play-by-play for Week 1, 2026, through the final whistle (source file md5 60a1a4874de6447eab83601acc51cca5).\nReport: the public edition of R/47_game_charts.R, unedited (script md5 ba518373fbdfc40a79029090f13c0cfd, commit a7a8bb9, clean working tree).\nCharting data: © FTN Data via nflverse, CC-BY-SA 4.0."
   },
   {
     "objectID": "posts/market-efficiency/index.html",
